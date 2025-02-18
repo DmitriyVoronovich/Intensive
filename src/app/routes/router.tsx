@@ -1,20 +1,16 @@
 import React from 'react';
-import {
-  BrowserRouter,
-  BrowserRouter as Router,
-  Route,
-  Routes,
-} from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { HomePage } from '../../pages';
+import { AuthRoute } from './authRoute.tsx';
 
 export const RouterProvider: React.FC = () => {
   return (
     <BrowserRouter>
-      <Router>
-        <Routes>
+      <Routes>
+        <Route element={<AuthRoute />}>
           <Route path="/" element={<HomePage />} />
-        </Routes>
-      </Router>
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 };
