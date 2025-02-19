@@ -1,14 +1,15 @@
 import React from 'react';
-import css from './SignIn.module.css';
 import { Button, Form, Input, message } from 'antd';
 import { KeyOutlined, UserOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
+import { paths } from '../../shared';
+import css from './SignIn.module.css';
 import './SignIn.css';
 
-interface FieldType {
+type FieldType = {
   username: string;
   password: string;
-}
+};
 
 export const SignIn: React.FC = () => {
   const navigate = useNavigate();
@@ -27,12 +28,14 @@ export const SignIn: React.FC = () => {
 
       if (user.password === password) {
         localStorage.setItem('user', JSON.stringify({ username, password }));
-        navigate('/');
+        navigate(paths.home());
       } else {
         void message.error('Неправильный пароль. Попробуйте снова.');
       }
     }
   };
+
+  const onGoHome = () => navigate(paths.home());
 
   return (
     <div className={css.container}>
@@ -73,7 +76,7 @@ export const SignIn: React.FC = () => {
               <Button
                 htmlType="button"
                 className={css.btnBack}
-                onClick={() => navigate('/')}
+                onClick={onGoHome}
               >
                 Назад
               </Button>
