@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Form, Input, message } from 'antd';
 import { KeyOutlined, UserOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
-import { paths } from '../../shared';
+import { PATHS } from '../../shared';
 import css from './SignIn.module.css';
 import './SignIn.css';
 
@@ -28,14 +28,14 @@ export const SignIn: React.FC = () => {
 
       if (user.password === password) {
         localStorage.setItem('user', JSON.stringify({ username, password }));
-        navigate(paths.home());
+        navigate(PATHS.HOME);
       } else {
         void message.error('Неправильный пароль. Попробуйте снова.');
       }
     }
   };
 
-  const onGoHome = () => navigate(paths.home());
+  const onGoHome = () => navigate(PATHS.HOME);
 
   return (
     <div className={css.container}>

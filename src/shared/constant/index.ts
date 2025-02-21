@@ -1,1 +1,1 @@
-export { paths } from './paths.ts';
+export { PATHS } from './paths.ts';
