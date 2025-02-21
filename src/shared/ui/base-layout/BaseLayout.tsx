@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import './BaseLayout.css'; 
+import css from './BaseLayout.module.css';
 
 interface Props {
   header?: ReactNode;
@@ -8,7 +8,7 @@ interface Props {
 
 export const BaseLayout = ({ header, outlet }: Props) => {
   return (
-    <div>
+    <div className={css.container}>
       <div>
         <div className='header'>{header}</div>
         <div className='outlet'>{outlet}</div>
