@@ -1,4 +1,4 @@
-import { BaseLayout } from '../../shared/ui';
+import { BaseLayout } from '../../shared';
 import { useOutlet } from 'react-router-dom';
 
 export const AuthRoute = () => {
