@@ -8,8 +8,6 @@ export const AuthRoute = () => {
     header={
       <Header 
         phone='+7 495 455 48 15' 
-        onBuy={() => console.log('Купить')}
-        onEnter={() => console.log('Вошёл')}
         />
     } 
     outlet={outlet} 
