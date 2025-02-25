@@ -4,28 +4,20 @@ import { useNavigate } from "react-router-dom";
 import { PATHS } from '../../shared';
 import styles from './SignUp.module.css';
 import './SignUp.css';
-
-type FieldType = {
-    username: string;
-    password: string;
-}
+import { FieldType, addUser, isUserExists } from "./model";
 
 export const SignUp: React.FC = () => {
     const navigate = useNavigate();
 
     const onFinish = ({ username, password }: FieldType) => {
-        const registeredData = localStorage.getItem('register');
-        const users: FieldType[] = registeredData ? JSON.parse(registeredData) : [];
-        const userExists = users.some(user => user.username === username);
-
-        if (userExists) {
-            void message.error('Пользователь с таким именем уже зарегистрирован!');
-        } else {
-            users.push({ username, password });
-            localStorage.setItem('register', JSON.stringify(users));
-            navigate(PATHS.SINGNIN);
+        if (isUserExists(username)) {
+            void message.error("Пользователь с таким именем уже зарегистрирован!");
+            return;
         }
-    }
+
+        addUser({ username, password });
+        navigate(PATHS.SINGNIN);
+    };
 
     const returnHome = () => {
         navigate(PATHS.HOME);
@@ -43,10 +35,10 @@ export const SignUp: React.FC = () => {
                     <Form.Item
                         label="Имя"
                         name="username"
-                        rules={[{
-                            required: true,
-                            message: "Введите имя!"
-                        }]}
+                        rules={[
+                            { required: true, message: "Введите имя!" },
+                            { min: 3, message: "Имя должно содержать минимум 3 символа!" }
+                        ]}
                         className={styles.formItem}
                     >
                         <Input placeholder="Ваше имя"/>
@@ -54,10 +46,10 @@ export const SignUp: React.FC = () => {
                     <Form.Item
                         label="Пароль"
                         name="password"
-                        rules={[{
-                            required: true,
-                            message: "Введите пароль!"
-                        }]}
+                        rules={[
+                            { required: true, message: "Введите пароль!" },
+                            { min: 6, message: "Пароль должен содержать минимум 6 символов!" }
+                        ]}
                         className={styles.formItem}
                     >
                         <Input.Password type="password" placeholder="Ваш пароль"/>
