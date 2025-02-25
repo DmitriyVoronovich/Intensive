@@ -1,7 +1,7 @@
 export type GameApiResponse = {
     count: number;
-    next: string | null;
-    previous: string | null;
+    next?: string;
+    previous?: string;
     results: GameResultType[];
 }
 
@@ -19,11 +19,11 @@ export type GameResultType = {
     reviews_text_count: string;
     added: number;
     added_by_status: Record<string, unknown>;
-    metacritic: number | null;
+    metacritic?: number;
     playtime: number;
     suggestions_count: number;
     updated: string;
-    esrb_rating: EsrbRating | null;
+    esrb_rating?: EsrbRating;
     platforms: Platform[];
 }
 
@@ -35,8 +35,8 @@ export type EsrbRating = {
 
 export type Platform = {
     platform: PlatformInfo;
-    released_at: string | null;
-    requirements: Requirements | null;
+    released_at?: string;
+    requirements?: Requirements;
 }
 
 export type PlatformInfo = {
@@ -46,6 +46,6 @@ export type PlatformInfo = {
 }
 
 export type Requirements = {
-    minimum: string | null;
-    recommended: string | null;
+    minimum?: string;
+    recommended?: string;
 }

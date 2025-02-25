@@ -1,1 +1,1 @@
-export { getGame } from './getGame.ts'
+export { getGames } from './getGames.ts'

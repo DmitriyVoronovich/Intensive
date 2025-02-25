@@ -3,7 +3,7 @@ import {gameSlice} from "../../entities/game";
 
 const store = configureStore({
   reducer: {
-    game: gameSlice.reducer
+    games: gameSlice.reducer
   },
 });
 

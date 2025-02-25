@@ -1,33 +1,33 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {getGame} from "../api";
+import {getGames} from "../api";
 import {GameResultType} from "../../../types";
 
 
 
 type InitialStateType= {
-    game: GameResultType[] | []
+    games: GameResultType[] | []
     loading: boolean
 }
 
 const initialState: InitialStateType  = {
-    game: [],
+    games: [],
     loading: false
 }
 
 const gameSlice = createSlice({
-    name: 'game',
+    name: 'games',
     initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(getGame.pending, (state) => {
+            .addCase(getGames.pending, (state) => {
                 state.loading = true
             })
-            .addCase(getGame.fulfilled, (state, action) => {
-                state.game = action.payload.results
+            .addCase(getGames.fulfilled, (state, action) => {
+                state.games = action.payload.results
                 state.loading = false
             })
-            .addCase(getGame.rejected, (state) => {
+            .addCase(getGames.rejected, (state) => {
                 state.loading = false
             })
     },

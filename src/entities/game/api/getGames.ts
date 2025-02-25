@@ -1,12 +1,13 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {API_KEY, axiosInstance} from "../../../shared";
+import {API_KEY, axiosInstance, REQUEST_PATHS} from "../../../shared";
 import {GameApiResponse} from "../../../types";
 
-export const getGame = createAsyncThunk<GameApiResponse, void>(
-    'slots/createSlot',
+export const getGames = createAsyncThunk<GameApiResponse, void>(
+    '@games/getGames',
     async (_ , { rejectWithValue }) => {
         try {
-            const res = await axiosInstance.get<GameApiResponse>(`/games?key=${API_KEY}`)
+            const res = await axiosInstance.get<GameApiResponse>(`${REQUEST_PATHS.GAMES}?key=${API_KEY}`)
+
             return res.data
         } catch (error) {
             return rejectWithValue(error)
