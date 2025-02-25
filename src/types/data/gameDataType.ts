@@ -1,8 +1,8 @@
 export type GameApiResponse = {
     count: number;
+    results: GameResultType[];
     next?: string;
     previous?: string;
-    results: GameResultType[];
 }
 
 export type GameResultType = {
@@ -19,12 +19,12 @@ export type GameResultType = {
     reviews_text_count: string;
     added: number;
     added_by_status: Record<string, unknown>;
-    metacritic?: number;
     playtime: number;
     suggestions_count: number;
     updated: string;
-    esrb_rating?: EsrbRating;
     platforms: Platform[];
+    esrb_rating?: EsrbRating;
+    metacritic?: number;
 }
 
 export type EsrbRating = {
