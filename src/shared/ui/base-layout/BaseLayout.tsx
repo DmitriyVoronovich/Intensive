@@ -10,8 +10,8 @@ export const BaseLayout = ({ header, outlet }: Props) => {
   return (
     <div className={css.container}>
       <div>
-        <div>{header}</div>
-        <div>{outlet}</div>
+        <div className={css.header}>{header}</div>
+        <div className={css.outlet}>{outlet}</div>
       </div>
     </div>
   );
