@@ -1,7 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
+import {gameSlice} from "../../entities/game";
 
 const store = configureStore({
-  reducer: {},
+  reducer: {
+    games: gameSlice.reducer
+  },
 });
 
 export type AppDispatch = typeof store.dispatch;
