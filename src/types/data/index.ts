@@ -1,1 +1,1 @@
-export type { GameApiResponse, GameResultType } from './gameDataType.ts'
+export type { GameApiResponse, GameResultType } from './gameDataType.ts';

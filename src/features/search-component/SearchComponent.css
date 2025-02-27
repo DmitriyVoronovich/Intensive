@@ -1,0 +1,26 @@
+.css-dev-only-do-not-override-1v613y0.ant-btn-variant-solid {
+  background-color: #50cd65;
+  color: #11172d;
+}
+
+.css-dev-only-do-not-override-1v613y0.ant-input-outlined {
+  border-color: #50cd65;
+}
+
+.css-dev-only-do-not-override-1v613y0.ant-select-outlined:not(
+    .ant-select-customize-input
+  ),
+.ant-select-selector {
+  border-color: #50cd65;
+}
+
+.css-dev-only-do-not-override-1v613y0.ant-btn-variant-solid:not(:disabled):not(
+    .ant-btn-disabled
+  ):hover {
+  color: #fcfdff;
+  background-color: #50cd65;
+}
+
+.css-dev-only-do-not-override-1v613y0.ant-select .ant-select-arrow {
+  color: #11172d;
+}

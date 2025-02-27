@@ -5,9 +5,7 @@ import path from 'path';
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [
-    svgr(), react()
-  ],
+  plugins: [svgr(), react()],
   resolve: {
     alias: {
       '@assets': path.resolve(__dirname, 'src/assets'),
