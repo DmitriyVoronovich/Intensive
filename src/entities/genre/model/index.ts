@@ -1,0 +1,1 @@
+export { genreSlice } from './slice.ts';

@@ -6,5 +6,7 @@ export const PATHS: Record<string, string> = {
 };
 
 export const REQUEST_PATHS: Record<string, string> = {
-  GAMES: '/games',
-};
+    GAMES: '/games',
+    PLATFORMS: '/platforms',
+    GENRES: '/genres',
+}
