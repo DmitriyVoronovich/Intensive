@@ -21,7 +21,7 @@ export const Header = ({phone}: HeaderProps) => {
     <div className="block_phone_buttons">
       <span className="phone">{phone}</span>
       <button className="buy" onClick={onBuy}>Купить игру</button>
-      <button className="exit" onClick={onEnter}>Вход</button>
+      <button className="entrance" onClick={onEnter}>Вход</button>
     </div>
   </header>
   );
