@@ -1,5 +1,5 @@
-import { SignUp } from "../../features";
+import { SignUp } from '../../features';
 
 export const SignUpPage = () => {
-    return <SignUp />;
+  return <SignUp />;
 };

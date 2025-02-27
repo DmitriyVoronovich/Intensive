@@ -1,0 +1,16 @@
+.css-dev-only-do-not-override-1v613y0.ant-card-bordered {
+  border-color: #50cd65;
+}
+
+.css-dev-only-do-not-override-1v613y0.ant-card .ant-card-actions {
+  border-color: #50cd65;
+}
+
+.ant-card-actions {
+  padding: 0;
+}
+
+.ant-card-actions > li {
+  margin: 0;
+  line-height: 40px;
+}

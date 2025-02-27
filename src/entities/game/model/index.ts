@@ -1,1 +1,1 @@
-export {gameSlice} from './slice.ts'
+export { gameSlice } from './slice.ts';
