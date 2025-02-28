@@ -1,20 +1,25 @@
 import Search from 'antd/es/input/Search';
 import { BaseSelect } from '../../shared';
 import { SearchProps } from 'antd/es/input';
-import { getGames, getSearchGames } from '../../entities/game';
+import { getGames, getSearchGames, selectGames } from '../../entities';
 import { useAppDispatch, useAppSelector } from '../../types';
 import css from './SearchComponent.module.css';
 import './SearchComponent.css';
 import { useState } from 'react';
+import { SelectItemWrapper } from './select-item-wrapper';
+
+type PlatformType = string | string[];
+type GenreType = string | string[];
+type OnSearchFunction = SearchProps['onSearch'];
 
 export const SearchComponent = () => {
   const dispatch = useAppDispatch();
-  const cardList = useAppSelector((state) => state.games.games);
+  const cardList = useAppSelector(selectGames);
 
-  const [platforms, setPlatforms] = useState<string | string[]>('');
-  const [genres, setGenres] = useState<string | string[]>('');
+  const [platforms, setPlatforms] = useState<PlatformType>('');
+  const [genres, setGenres] = useState<GenreType>('');
 
-  const onSearch: SearchProps['onSearch'] = (value) => {
+  const onSearch: OnSearchFunction = (value) => {
     if (value === '') {
       return dispatch(getGames());
     }
@@ -27,8 +32,8 @@ export const SearchComponent = () => {
     );
   };
 
-  const onSelectGenres = (value: string | string[]) => setGenres(value);
-  const onSelectPlatforms = (value: string | string[]) => setPlatforms(value);
+  const onSelectGenres = (value: GenreType) => setGenres(value);
+  const onSelectPlatforms = (value: PlatformType) => setPlatforms(value);
 
   return (
     <div className={css.searchWrapper}>
@@ -40,22 +45,20 @@ export const SearchComponent = () => {
         onSearch={onSearch}
       />
       <div className={css.selectWrapper}>
-        <div className={css.selectItem}>
-          <span>Выберите жанр игры</span>
+        <SelectItemWrapper name={'Выберите жанр игры'}>
           <BaseSelect
             options={cardList}
             placeholder={'Выберите жанр'}
             onChange={onSelectGenres}
           />
-        </div>
-        <div className={css.selectItem}>
-          <span>Выберите платформу</span>
+        </SelectItemWrapper>
+        <SelectItemWrapper name={'Выберите платформу'}>
           <BaseSelect
             options={cardList}
             placeholder={'Выберите платформу'}
             onChange={onSelectPlatforms}
           />
-        </div>
+        </SelectItemWrapper>
       </div>
     </div>
   );

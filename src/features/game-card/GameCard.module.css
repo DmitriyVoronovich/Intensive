@@ -37,24 +37,6 @@
   align-items: start;
 }
 
-.descriptionWrapper {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
 .descriptionInformation {
   margin-right: 10px;
-}
-
-.ratingCategory {
-  margin: 0 10px 0 0;
-}
-
-.genresCategory {
-  margin: 0 30px 0 0;
-}
-
-.platformCategory {
-  margin: 0 10px 0 0;
 }

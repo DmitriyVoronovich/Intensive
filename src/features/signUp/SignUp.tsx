@@ -5,6 +5,7 @@ import { PATHS } from '../../shared';
 import styles from './SignUp.module.css';
 import './SignUp.css';
 import { FieldType, addUser, isUserExists } from './model';
+import { passwordRules, usernameRules } from './model';
 
 export const SignUp: React.FC = () => {
   const navigate = useNavigate();
@@ -31,10 +32,7 @@ export const SignUp: React.FC = () => {
           <Form.Item
             label="Имя"
             name="username"
-            rules={[
-              { required: true, message: 'Введите имя!' },
-              { min: 3, message: 'Имя должно содержать минимум 3 символа!' },
-            ]}
+            rules={usernameRules}
             className={styles.formItem}
           >
             <Input placeholder="Ваше имя" />
@@ -42,13 +40,7 @@ export const SignUp: React.FC = () => {
           <Form.Item
             label="Пароль"
             name="password"
-            rules={[
-              { required: true, message: 'Введите пароль!' },
-              {
-                min: 6,
-                message: 'Пароль должен содержать минимум 6 символов!',
-              },
-            ]}
+            rules={passwordRules}
             className={styles.formItem}
           >
             <Input.Password type="password" placeholder="Ваш пароль" />

@@ -3,11 +3,7 @@ import Logo from '@assets/logo.svg?react';
 import { useNavigate } from 'react-router-dom';
 import { PATHS } from '../../constant';
 
-interface HeaderProps {
-  phone: string;
-}
-
-export const Header = ({ phone }: HeaderProps) => {
+export const Header = () => {
   const navigate = useNavigate();
 
   const onBuy = () => console.log('Купить');
@@ -19,7 +15,6 @@ export const Header = ({ phone }: HeaderProps) => {
       <Logo className={'img'} alt={'логотип'} />
 
       <div className="block_phone_buttons">
-        <span className="phone">{phone}</span>
         <button className="buy" onClick={onBuy}>
           Купить игру
         </button>

@@ -1,26 +1,30 @@
 import { GameResultType, useAppSelector } from '../../types';
 import { Card, Rate } from 'antd';
+import { selectGamesLoading } from '../../entities';
 import css from './GameCard.module.css';
 import './GameCard.css';
+import { InformationWrapper } from './information-wrapper';
 
 type Props = {
   card: GameResultType;
 };
 
 export const GameCard = ({ card }: Props) => {
-  const loading = useAppSelector((state) => state.games.loading);
+  const loading = useAppSelector(selectGamesLoading);
 
   const { background_image, name, platforms, rating, genres } = card;
+
+  const details = [
+    <div key="details" className={css.cardMoreDetails}>
+      Подробнее
+    </div>,
+  ];
 
   return (
     <Card
       className={css.container}
       hoverable
-      actions={[
-        <div key="details" className={css.cardMoreDetails}>
-          Подробнее
-        </div>,
-      ]}
+      actions={details}
       loading={loading}
     >
       <h3 className={css.cardName}>{name}</h3>
@@ -29,12 +33,10 @@ export const GameCard = ({ card }: Props) => {
         <img alt={name} src={background_image} className={css.cardImg} />
       </div>
       <div className={css.cardInformationWrapper}>
-        <div className={css.descriptionWrapper}>
-          <h3 className={css.ratingCategory}>Рейтинг:</h3>
+        <InformationWrapper name={'Рейтинг:'}>
           <Rate value={rating} disabled />
-        </div>
-        <div className={css.descriptionWrapper}>
-          <h3 className={css.genresCategory}>Жанр:</h3>
+        </InformationWrapper>
+        <InformationWrapper name={'Жанр:'}>
           {genres?.map((item) => {
             return (
               <div key={item.id} className={css.descriptionInformation}>
@@ -42,9 +44,8 @@ export const GameCard = ({ card }: Props) => {
               </div>
             );
           })}
-        </div>
-        <div className={css.descriptionWrapper}>
-          <h3 className={css.platformCategory}>Платформы:</h3>
+        </InformationWrapper>
+        <InformationWrapper name={'Платформы:'}>
           {platforms.map((item) => {
             return (
               <div
@@ -55,7 +56,7 @@ export const GameCard = ({ card }: Props) => {
               </div>
             );
           })}
-        </div>
+        </InformationWrapper>
       </div>
     </Card>
   );

@@ -3,8 +3,8 @@ import { GameApiResponse } from '../../../types';
 import { API_KEY, axiosInstance, REQUEST_PATHS } from '../../../shared';
 
 type ArgType = {
-  id?: string;
   search: string;
+  id?: string;
   platforms?: string | string[];
   genres?: string | string[];
   page?: number;

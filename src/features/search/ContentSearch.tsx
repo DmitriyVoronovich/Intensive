@@ -1,13 +1,13 @@
 import css from './ContentSearch.module.css';
 import { useAppDispatch, useAppSelector } from '../../types';
 import { GameCard } from '../game-card';
-import { getGames } from '../../entities/game';
+import { getGames, selectGames } from '../../entities';
 import { useEffect } from 'react';
 import { SearchComponent } from '../search-component';
 
 export const ContentSearch = () => {
   const dispatch = useAppDispatch();
-  const cardList = useAppSelector((state) => state.games.games);
+  const cardList = useAppSelector(selectGames);
 
   useEffect(() => {
     dispatch(getGames());

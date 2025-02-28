@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { gameSlice } from '../../entities/game';
-import {platformSlice} from '../../entities/platform';
-import {genreSlice} from '../../entities/genre';
+import { gameSlice } from '../../entities';
+import { platformSlice } from '../../entities';
+import { genreSlice } from '../../entities';
 
 const store = configureStore({
   reducer: {
