@@ -1,27 +1,28 @@
+import { ReactNode } from 'react';
 import './Header.css';
 import Logo from '@assets/logo.svg?react';
-import { useNavigate } from 'react-router-dom';
-import { PATHS } from '../../constant';
 
-export const Header = () => {
-  const navigate = useNavigate();
 
+interface HeaderProps{
+  phone: string,
+}
+
+export const Header = ({phone}: HeaderProps) => {
+  
   const onBuy = () => console.log('Купить');
 
-  const onEnter = () => navigate(PATHS.SINGNIN);
-
+  const onEnter = () => console.log('Вошёл');
+  
   return (
-    <header className="head">
-      <Logo className={'img'} alt={'логотип'} />
+  <header className='head'>
 
-      <div className="block_phone_buttons">
-        <button className="buy" onClick={onBuy}>
-          Купить игру
-        </button>
-        <button className="exit" onClick={onEnter}>
-          Вход
-        </button>
-      </div>
-    </header>
+    <Logo className={'img'} alt={'логотип'}/>
+
+    <div className="block_phone_buttons">
+      <span className="phone">{phone}</span>
+      <button className="buy" onClick={onBuy}>Купить игру</button>
+      <button className="entrance" onClick={onEnter}>Вход</button>
+    </div>
+  </header>
   );
-};
+}
