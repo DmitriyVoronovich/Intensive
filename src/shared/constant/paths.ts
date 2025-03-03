@@ -1,7 +1,9 @@
 export const PATHS: Record<string, string> = {
     HOME: '/',
     SINGNIN: '/signin',
-    SIGNUP: '/signup'
+    SIGNUP: '/signup',
+    HISTORY: '/history',
+    FAVORITES: '/favorites'
 }
 
 export const REQUEST_PATHS: Record<string, string> = {

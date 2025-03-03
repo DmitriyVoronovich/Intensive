@@ -5,11 +5,7 @@ import { Header } from '../../shared/ui/header';
 export const AuthRoute = () => {
   const outlet = useOutlet();
   return <BaseLayout 
-    header={
-      <Header 
-        phone='+7 495 455 48 15' 
-        />
-    } 
+    header={<Header />}
     outlet={outlet} 
     />;
 };

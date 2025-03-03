@@ -1,0 +1,100 @@
+.head {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  padding-inline-start: 8vw;
+  padding-inline-end: 2vw;
+}
+
+.guestActions {
+  width: 558px;
+  height: 41px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.userActions {
+  width: 588px;
+  height: 41px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 15px;
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: background 0.3s;
+}
+
+.profile:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.avatarIcon {
+  color: #4CAF50;
+}
+
+.username {
+  color: white;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 21px;
+}
+
+.signUpButton,
+.signInButton,
+.userActionButton {
+  padding: 8px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid rgb(80, 205, 100);
+  color: white;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+.logoutButton {
+  padding: 0;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.logoutButton:hover{
+  opacity: 0.7;
+}
+
+.signUpButton:hover,
+.signInButton:hover,
+.userActionButton:hover {
+  background: rgba(80, 205, 100, 0.2);
+}
+
+.signUpButton:active,
+.signInButton:active,
+.userActionButton:active {
+  border: 1px solid white;
+}
