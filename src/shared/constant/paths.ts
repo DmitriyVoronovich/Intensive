@@ -1,7 +1,8 @@
 export const PATHS: Record<string, string> = {
     HOME: '/',
     SINGNIN: '/signin',
-    SIGNUP: '/signup'
+    SIGNUP: '/signup',
+    GAMEPAGE: "/game/:id"
 }
 
 export const REQUEST_PATHS: Record<string, string> = {
