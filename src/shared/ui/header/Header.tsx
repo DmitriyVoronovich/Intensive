@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import css from './Header.module.css';
 import Logo from '@assets/logo.svg?react';
@@ -11,15 +10,14 @@ import {
   LoginOutlined,
   UserAddOutlined
 } from '@ant-design/icons';
+import { useDispatch } from "react-redux";
+import { useAppSelector } from "../../../types";
+import { logoutUser } from "../../../entities/user";
 
 export const Header = () => {
   const navigate = useNavigate();
-  const [user, setUser] = useState<{ username: string } | null>(null);
-
-  useEffect(()=> {
-    const storedUser = localStorage.getItem('user');
-    setUser(storedUser ? JSON.parse(storedUser) : null);
-  }, [])
+  const dispatch = useDispatch();
+  const user = useAppSelector((state) => state.user.user)
 
   const handleSignUp = () => navigate(PATHS.SIGNUP);
   const handleSignIn = () => navigate(PATHS.SINGNIN);
@@ -28,7 +26,7 @@ export const Header = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('user');
-    setUser(null);
+    dispatch(logoutUser());
     navigate(PATHS.HOME);
   };
 
@@ -37,7 +35,7 @@ export const Header = () => {
     <Link to={PATHS.HOME}>
       <Logo alt="логотип" />
     </Link>
-      {user ? (
+      {user !== null ? (
           <div className={css.userActions}>
             <button className={css.userActionButton} onClick={handleFavoritesClick}>
               <HeartOutlined /> Избранное

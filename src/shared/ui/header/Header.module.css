@@ -7,26 +7,26 @@
   align-items: center;
   color: white;
   padding-inline-start: 8vw;
-  padding-inline-end: 2vw;
+  padding-inline-end: 8vw;
 }
 
 .guestActions {
-  width: 558px;
+  min-width: 558px;
   height: 41px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 15px;
+  gap: 35px;
 }
 
 .userActions {
-  width: 588px;
+  min-width: 588px;
   height: 41px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   flex-direction: row;
-  gap: 15px;
+  gap: 35px;
 }
 
 .profile {
