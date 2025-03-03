@@ -3,7 +3,7 @@ import { HomeCards } from './home_cards';
 import { HomeContent } from './home_content';
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { setUser, logoutUser } from "../../entities/user";
+import { setUser, logoutUser } from "../../entities";
 
 export const Home = () => {
     const dispatch = useDispatch();

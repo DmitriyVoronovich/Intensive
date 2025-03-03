@@ -12,7 +12,7 @@ import {
 } from '@ant-design/icons';
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "../../../types";
-import { logoutUser } from "../../../entities/user";
+import { logoutUser } from "../../../entities";
 
 export const Header = () => {
   const navigate = useNavigate();
