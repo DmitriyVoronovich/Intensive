@@ -6,7 +6,13 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
-  margin-block-start: 35vh;
+  margin-block-start: 30vh;
   margin-inline-start: 13vw;
-  margin-block-end: 25vh;
+  margin-block-end: 20vh;
+}
+
+.searchContainer {
+  width: 100%;
+  display: flex;
+  justify-content: start;
 }

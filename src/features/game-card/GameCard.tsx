@@ -14,24 +14,19 @@ export const GameCard = ({card}: Props) => {
 
     const {background_image, name, platforms, rating, genres} = card;
 
-    const details = [
-        <div key="details" className={css.cardMoreDetails}>
-            Подробнее
-        </div>,
-    ];
-
     return (
         <Card
             className={css.container}
             hoverable
-            actions={details}
             loading={loading}
         >
-            <h3 className={css.cardName}>{name}</h3>
+            <>
+                <h3 className={css.cardName}>{name}</h3>
 
-            <div className={css.cardImgContainer}>
-                <img alt={name} src={background_image} className={css.cardImg}/>
-            </div>
+                <div className={css.cardImgContainer}>
+                    <img alt={name} src={background_image} className={css.cardImg}/>
+                </div>
+            </>
             <div className={css.cardInformationWrapper}>
                 <InformationWrapper name={'Рейтинг:'}>
                     <Rate value={rating} disabled/>
@@ -46,11 +41,14 @@ export const GameCard = ({card}: Props) => {
                 <InformationWrapper name={'Платформы:'}>
                     {platforms.map((item) =>
                         <div key={item.platform.id}
-                            className={css.descriptionInformation}>
+                             className={css.descriptionInformation}>
                             {item.platform.name}
                         </div>
                     )}
                 </InformationWrapper>
+            </div>
+            <div className={css.cardMoreDetails}>
+                Подробнее
             </div>
         </Card>
     );
