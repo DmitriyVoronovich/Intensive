@@ -1,1 +1,2 @@
-export { SearchComponent } from './SearchComponent.tsx';
+export * from './ui';
+export * from './model';

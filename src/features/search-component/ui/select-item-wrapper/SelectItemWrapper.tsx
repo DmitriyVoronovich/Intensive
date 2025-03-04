@@ -9,7 +9,7 @@ type Props = {
 export const SelectItemWrapper = ({ name, children }: Props) => {
   return (
     <div className={css.selectItem}>
-      <span>{name}</span>
+      <span className={css.selectTitle}>{name}</span>
       {children}
     </div>
   );

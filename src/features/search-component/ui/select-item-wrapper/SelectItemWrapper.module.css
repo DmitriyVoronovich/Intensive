@@ -1,0 +1,8 @@
+.selectItem {
+    display: flex;
+    flex-direction: column;
+}
+
+.selectTitle {
+    color: #fcfdff;
+}
