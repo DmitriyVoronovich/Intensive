@@ -4,6 +4,8 @@ import {HomeContent} from './home_content';
 import {useEffect} from "react";
 import {getGenres, getPlatforms, setClearGame} from "../../entities";
 import {useAppDispatch} from "../../types";
+import { setUser, logoutUser } from '../../entities';
+import { STORAGE_KEYS } from '../../shared';
 
 export const Home = () => {
     const dispatch = useAppDispatch();
@@ -12,6 +14,12 @@ export const Home = () => {
         dispatch(getGenres());
         dispatch(getPlatforms());
         dispatch(setClearGame());
+        const storedUser = localStorage.getItem(STORAGE_KEYS.USER);
+        if (storedUser) {
+            dispatch(setUser(JSON.parse(storedUser)));
+        } else {
+            dispatch(logoutUser());
+        }
     }, []);
 
     return (
