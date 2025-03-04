@@ -1,1 +1,1 @@
-export * from './slice.ts';
+export * from './model';

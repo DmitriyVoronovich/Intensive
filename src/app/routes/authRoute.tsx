@@ -4,5 +4,5 @@ import { Header } from '../../shared';
 
 export const AuthRoute = () => {
   const outlet = useOutlet();
-  return <BaseLayout header={<Header/>} outlet={outlet}/>;
+  return <BaseLayout header={<Header />} outlet={outlet} />;
 };

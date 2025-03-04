@@ -44,7 +44,7 @@
 }
 
 .avatarIcon {
-  color: #4CAF50;
+  color: #4caf50;
 }
 
 .username {
@@ -67,7 +67,9 @@
   color: white;
   border-radius: 50px;
   cursor: pointer;
-  transition: background 0.3s, color 0.3s;
+  transition:
+    background 0.3s,
+    color 0.3s;
   font-size: 17px;
   font-weight: 400;
   line-height: 21px;
@@ -83,7 +85,7 @@
   transition: opacity 0.3s;
 }
 
-.logoutButton:hover{
+.logoutButton:hover {
   opacity: 0.7;
 }
 
