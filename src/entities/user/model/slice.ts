@@ -3,12 +3,12 @@ import { User } from '../../../types';
 
 type InitialStateType = {
   user?: User;
-  aut: boolean;
+  auth: boolean;
 };
 
 const initialState: InitialStateType = {
   user: undefined,
-  aut: false,
+  auth: false,
 };
 
 const userSlice = createSlice({
@@ -17,11 +17,11 @@ const userSlice = createSlice({
   reducers: {
     setUser(state, action) {
       state.user = action.payload;
-      state.aut = true;
+      state.auth = true;
     },
     logoutUser(state) {
       state.user = undefined;
-      state.aut = false;
+      state.auth = false;
     },
   },
 });

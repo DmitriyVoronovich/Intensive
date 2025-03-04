@@ -36,7 +36,7 @@ export const Header = () => {
       <Link to={PATHS.HOME}>
         <Logo alt={'логотип'} />
       </Link>
-      {user !== undefined ? (
+      {user ? (
         <div className={css.userActions}>
           <button
             className={css.userActionButton}
