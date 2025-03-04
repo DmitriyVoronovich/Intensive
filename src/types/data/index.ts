@@ -4,3 +4,4 @@ export type {
   PlatformApiResponse,
   PlatformResultType,
 } from './platformDataType.ts';
+export type { User } from './user.ts';
