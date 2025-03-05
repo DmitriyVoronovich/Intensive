@@ -1,5 +1,5 @@
 import Search from 'antd/es/input/Search';
-import {BaseSelect} from '../../../shared';
+import {BaseSelect, PATHS} from '../../../shared';
 import {SearchProps} from 'antd/es/input';
 import {
     getSearchGames,
@@ -45,7 +45,6 @@ export const SearchComponent = () => {
         }
 
         if (genres && genres.length !== 0) {
-            console.log(genres)
             params.genres = onTransformValue(genres);
         }
 
@@ -74,8 +73,8 @@ export const SearchComponent = () => {
             genres: genres,
             platforms: platforms,
         }))
-        if (locate.pathname !== '/search') {
-            return navigate('/search')
+        if (locate.pathname !== PATHS.SEARCH) {
+            return navigate(PATHS.SEARCH)
         }
         performSearch(searchParams);
     }, [createSearchParams]);
