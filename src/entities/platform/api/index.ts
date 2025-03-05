@@ -1,1 +1,1 @@
-export { getPlatforms } from "./getPlatforms.ts";
+export { getPlatforms } from './getPlatforms.ts';

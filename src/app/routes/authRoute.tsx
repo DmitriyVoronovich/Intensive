@@ -1,15 +1,8 @@
 import { BaseLayout } from '../../shared';
 import { useOutlet } from 'react-router-dom';
-import { Header } from '../../shared/ui/header';
+import { Header } from '../../shared';
 
 export const AuthRoute = () => {
   const outlet = useOutlet();
-  return <BaseLayout 
-    header={
-      <Header 
-        phone='+7 495 455 48 15' 
-        />
-    } 
-    outlet={outlet} 
-    />;
+  return <BaseLayout header={<Header />} outlet={outlet} />;
 };

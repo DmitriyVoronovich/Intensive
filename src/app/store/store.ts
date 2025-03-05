@@ -1,13 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
-import {gameSlice} from "../../entities/game";
-import {platformSlice} from "../../entities/platform";
-import {genreSlice} from "../../entities/genre";
+import { gameSlice } from '../../entities';
+import { platformSlice } from '../../entities';
+import { genreSlice } from '../../entities';
+import { userSlice } from '../../entities';
 
 const store = configureStore({
   reducer: {
     games: gameSlice.reducer,
     platforms: platformSlice.reducer,
-    genres: genreSlice.reducer
+    genres: genreSlice.reducer,
+    user: userSlice.reducer,
   },
 });
 
