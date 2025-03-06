@@ -10,7 +10,7 @@
   box-sizing: border-box;
   background-color: #11172d;
   padding: 50px 50px;
-  border: 3px solid #50cd65;
+  border: 1px solid #50cd65;
   border-radius: 10px;
   display: flex;
   flex-direction: column;

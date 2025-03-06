@@ -1,17 +1,17 @@
 import {createSlice, isPending, isRejected} from '@reduxjs/toolkit';
 import {getGames, getSearchGames} from '../api';
-import {GameResultType, QueryParams} from '../../../types';
+import {GameResultType, QueryParamsType} from '../../../types';
 
 type InitialStateType = {
     games: GameResultType[] | [];
     loading: boolean;
-    queryParams: QueryParams
+    queryParams: QueryParamsType
 };
 
 const initialState: InitialStateType = {
     games: [],
     loading: false,
-    queryParams: {} as QueryParams
+    queryParams: {} as QueryParamsType
 };
 
 const setLoading = (state: InitialStateType, loading: boolean): void => {
@@ -25,7 +25,8 @@ const gameSlice = createSlice({
         setQueryParams(state, action) {
             state.queryParams = action.payload
         },
-        setClearGame(state) {
+        setClearSearch(state) {
+            state.queryParams = {}
             state.games = []
         },
     },
@@ -49,4 +50,4 @@ const gameSlice = createSlice({
 });
 
 export {gameSlice};
-export const {setQueryParams, setClearGame} = gameSlice.actions
+export const {setQueryParams, setClearSearch} = gameSlice.actions
