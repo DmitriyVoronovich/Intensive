@@ -3,9 +3,11 @@ import { gameSlice } from '../../entities';
 import { platformSlice } from '../../entities';
 import { genreSlice } from '../../entities';
 import { userSlice } from '../../entities';
+import { gameDetailsSlice } from '../../entities/gameDetails/model';
 
 const store = configureStore({
   reducer: {
+    gameDetails: gameDetailsSlice.reducer,
     games: gameSlice.reducer,
     platforms: platformSlice.reducer,
     genres: genreSlice.reducer,

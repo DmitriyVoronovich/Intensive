@@ -58,3 +58,20 @@ export type Requirements = {
   minimum?: string;
   recommended?: string;
 };
+
+export type TGameDetails = {
+  id: number,
+  slug: string,
+  name: string,
+  name_original: string,
+  description: string,
+  released: string,
+  updated: string,
+  background_image: string,
+  background_image_additional: string,
+  website: string,
+  suggestions_count: 0,
+  platforms: Platform[],
+  playtime: string,
+  reddit_url: string,
+}

@@ -5,7 +5,7 @@
 }
 
 body {
-  min-width: 1100px;
+  /* min-width: 1100px; */
   margin: 0;
   font-family: Raleway, sans-serif;
 }
@@ -32,7 +32,7 @@ a {
 .container {
   margin: 0;
   margin: auto;
-  width: 100%;
+  /* width: 100%; */
   min-width: 375px;
   background-color: rgb(15, 19, 36);
   background-image: url('../../../assets/Rectangle.png');
@@ -40,6 +40,7 @@ a {
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
+  padding: 0px 15px 0px 15px;
 }
 
 .outlet {
