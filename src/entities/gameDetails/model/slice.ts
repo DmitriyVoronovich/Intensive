@@ -2,16 +2,14 @@ import { createSlice, isPending, isRejected } from '@reduxjs/toolkit';
 import { getGameDetails } from '../api';
 import { TGameDetails } from '../../../types';
 
-type TGameDetailsState = {
-  details: TGameDetails | null;
-  error: string | null;
+type GameDetailsState = {
+  details?: TGameDetails;
+  error?: string;
   loading: boolean;
 };
 
-const initialState: TGameDetailsState = {
-  details: null,
+const initialState: GameDetailsState = {
   loading: true,
-  error: null,
 };
 
 export const gameDetailsSlice = createSlice({
@@ -23,14 +21,14 @@ export const gameDetailsSlice = createSlice({
       .addCase(getGameDetails.fulfilled, (state, action) => {
         state.details = action.payload;
         state.loading = false;
-        state.error = null;
+        state.error = undefined;
       })
       .addMatcher(isPending(getGameDetails), (state) => {
         state.loading = true;
       })
       .addMatcher(isRejected(getGameDetails), (state) => {
         state.loading = false;
-        state.details = null;
+        state.details = undefined;
       });
   },
 });
