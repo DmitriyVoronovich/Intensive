@@ -1,43 +1,52 @@
-import { createSlice, isPending, isRejected } from '@reduxjs/toolkit';
-import { getGames } from '../api';
-import { GameResultType } from '../../../types';
-import { getSearchGames } from '../api';
+import {createSlice, isPending, isRejected} from '@reduxjs/toolkit';
+import {getGames, getSearchGames} from '../api';
+import {GameResultType, QueryParams} from '../../../types';
 
 type InitialStateType = {
-  games: GameResultType[] | [];
-  loading: boolean;
+    games: GameResultType[] | [];
+    loading: boolean;
+    queryParams: QueryParams
 };
 
 const initialState: InitialStateType = {
-  games: [],
-  loading: false,
+    games: [],
+    loading: false,
+    queryParams: {} as QueryParams
 };
 
 const setLoading = (state: InitialStateType, loading: boolean): void => {
-  state.loading = loading;
+    state.loading = loading;
 };
 
 const gameSlice = createSlice({
-  name: 'games',
-  initialState,
-  reducers: {},
-  extraReducers: (builder) => {
-    builder
-      .addCase(getGames.fulfilled, (state, action) => {
-        state.games = action.payload.results;
-        setLoading(state, false);
-      })
-      .addCase(getSearchGames.fulfilled, (state, action) => {
-        state.games = action.payload.results;
-        setLoading(state, false);
-      })
-      .addMatcher(isPending(getGames, getSearchGames), (state) => {
-        setLoading(state, true);
-      })
-      .addMatcher(isRejected(getGames, getSearchGames), (state) => {
-        setLoading(state, false);
-      });
-  },
+    name: 'games',
+    initialState,
+    reducers: {
+        setQueryParams(state, action) {
+            state.queryParams = action.payload
+        },
+        setClearGame(state) {
+            state.games = []
+        },
+    },
+    extraReducers: (builder) => {
+        builder
+            .addCase(getGames.fulfilled, (state, action) => {
+                state.games = action.payload.results;
+                setLoading(state, false);
+            })
+            .addCase(getSearchGames.fulfilled, (state, action) => {
+                state.games = action.payload.results;
+                setLoading(state, false);
+            })
+            .addMatcher(isPending(getGames, getSearchGames), (state) => {
+                setLoading(state, true);
+            })
+            .addMatcher(isRejected(getGames, getSearchGames), (state) => {
+                setLoading(state, false);
+            });
+    },
 });
 
-export { gameSlice };
+export {gameSlice};
+export const {setQueryParams, setClearGame} = gameSlice.actions

@@ -16,28 +16,22 @@ export const GameCard = ({card}: Props) => {
 
     const {id, background_image, name, platforms, rating, genres} = card;
 
-const navigate = useNavigate();
-const openDetails = () => navigate(PATHS.GAMEPAGE.replace(':id', `${id}`)) 
-
-    const details = [
-
-        <div onClick={openDetails} key="details" className={css.cardMoreDetails}>
-            Подробнее
-        </div>,
-    ];
+    const navigate = useNavigate();
+    const openDetails = () => navigate(PATHS.GAMEPAGE.replace(':id', `${id}`)) 
 
     return (
         <Card
             className={css.container}
             hoverable
-            actions={details}
             loading={loading}
         >
-            <h3 className={css.cardName}>{name}</h3>
+            <>
+                <h3 className={css.cardName}>{name}</h3>
 
-            <div className={css.cardImgContainer}>
-                <img alt={name} src={background_image} className={css.cardImg}/>
-            </div>
+                <div className={css.cardImgContainer}>
+                    <img alt={name} src={background_image} className={css.cardImg}/>
+                </div>
+            </>
             <div className={css.cardInformationWrapper}>
                 <InformationWrapper name={'Рейтинг:'}>
                     <Rate value={rating} disabled/>
@@ -57,6 +51,9 @@ const openDetails = () => navigate(PATHS.GAMEPAGE.replace(':id', `${id}`))
                         </div>
                     )}
                 </InformationWrapper>
+            </div>
+            <div onClick={openDetails} className={css.cardMoreDetails}>
+                Подробнее
             </div>
         </Card>
     );
