@@ -4,4 +4,5 @@ export type {
   PlatformApiResponse,
   PlatformResultType,
 } from './platformDataType.ts';
+export type { QueryParams } from './queryParams.ts';
 export type { User } from './user.ts';

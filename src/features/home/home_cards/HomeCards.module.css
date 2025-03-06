@@ -1,6 +1,6 @@
 .cards {
   width: 100%;
-  height: 100vh;
+  min-height: 45vh;
   display: flex;
   flex-direction: column;
   align-self: center;
@@ -8,5 +8,14 @@
   justify-content: center;
   background-color: rgb(17, 23, 45);
   border-top: 5px solid rgb(80, 205, 100);
-  border-radius: 150px 150px 0px 0px;
+  border-radius: 150px 150px 0 0;
+}
+
+.cardWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: 30px;
 }
