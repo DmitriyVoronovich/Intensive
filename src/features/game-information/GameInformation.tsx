@@ -1,8 +1,8 @@
-import { TGameDetails } from '../../types';
+import { GameDetails } from '../../types';
 import css from './GameInformation.module.css';
 
 interface GameInformationProps {
-  details: TGameDetails;
+  details: GameDetails;
 }
 
 export function GameInformation({details}: GameInformationProps) {
@@ -15,7 +15,7 @@ export function GameInformation({details}: GameInformationProps) {
           <div className={css.game_information}>
             <div className={css.information}>Дата обновления: <span className={css.style_word}>{details.updated}</span></div>
             <div className={css.information}>Описание:</div>
-            <div className={css.style_word} dangerouslySetInnerHTML={{ __html: details.description }}></div>
+            <div className={css.style_word}>{details.description_raw}</div>
             <div className={css.information}>Официальный сайт: <a className={css.style_web} href={details.website} target="_blank">{details.website}</a></div>
             <div className={css.information}>Обновление: <span className={css.style_word}>{details.updated}</span></div>
             <div className={css.information}>Релиз: <span className={css.style_word}>{details.released}</span></div>
