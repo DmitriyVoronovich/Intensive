@@ -2,22 +2,18 @@ import React from 'react';
 import { Button, Form, Input, message } from 'antd';
 import { KeyOutlined, UserOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
-import { PATHS } from '../../shared';
+import { PATHS, STORAGE_KEYS } from '../../shared';
 import css from './SignIn.module.css';
 import './SignIn.css';
-
-type FieldType = {
-  username: string;
-  password: string;
-};
+import { User } from '../../types';
 
 export const SignIn: React.FC = () => {
   const navigate = useNavigate();
 
-  const onFinish = ({ username, password }: FieldType) => {
-    const registeredData = localStorage.getItem('register');
+  const onFinish = ({ username, password }: User) => {
+    const registeredData = localStorage.getItem(STORAGE_KEYS.REGISTER);
     if (registeredData) {
-      const registeredUsers: Array<FieldType> = JSON.parse(registeredData);
+      const registeredUsers: Array<User> = JSON.parse(registeredData);
 
       const user = registeredUsers.find((user) => user.username === username);
 
@@ -27,7 +23,10 @@ export const SignIn: React.FC = () => {
       }
 
       if (user.password === password) {
-        localStorage.setItem('user', JSON.stringify({ username, password }));
+        localStorage.setItem(
+          STORAGE_KEYS.USER,
+          JSON.stringify({ username, password })
+        );
         navigate(PATHS.HOME);
       } else {
         void message.error('Неправильный пароль. Попробуйте снова.');
