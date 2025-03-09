@@ -58,3 +58,20 @@ export type Requirements = {
   minimum?: string;
   recommended?: string;
 };
+
+export type GameDetails = {
+  id: number,
+  slug: string,
+  name: string,
+  name_original: string,
+  description_raw: string,
+  released: string,
+  updated: string,
+  background_image: string,
+  background_image_additional: string,
+  website: string,
+  suggestions_count: 0,
+  platforms: Platform[],
+  playtime: string,
+  reddit_url: string,
+}
