@@ -4,13 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import { PATHS } from '../../shared';
 import styles from './SignUp.module.css';
 import './SignUp.css';
-import { FieldType, addUser, isUserExists } from './model';
+import { addUser, isUserExists } from './model';
 import { passwordRules, usernameRules } from './model';
+import { User } from '../../types';
 
 export const SignUp: React.FC = () => {
   const navigate = useNavigate();
 
-  const onFinish = ({ username, password }: FieldType) => {
+  const onFinish = ({ username, password }: User) => {
     if (isUserExists(username)) {
       void message.error('Пользователь с таким именем уже зарегистрирован!');
       return;

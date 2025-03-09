@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import {HistoryPage} from "../../pages/history-page";
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
-import {HomePage, SearchPage, SignInPage, SignUpPage} from '../../pages';
+import {HomePage, SignInPage, SignUpPage} from '../../pages';
 import {AuthRoute} from './authRoute.tsx';
 import {ErrorBoundary, PATHS} from '../../shared';
+import { Loader } from '../../shared/ui/loading';
+import { SearchPage } from './lazy-routes.ts';
 
 export const RouterProvider: React.FC = () => {
     return (
         <BrowserRouter>
+          <Suspense fallback={<Loader />}>
             <Routes>
                 <Route element={<AuthRoute/>}>
                     <Route path={PATHS.HOME} element={
@@ -31,7 +34,8 @@ export const RouterProvider: React.FC = () => {
                             <HistoryPage/>
                         </ErrorBoundary>}/>
                 </Route>
-            </Routes>
+              </Routes>
+            </Suspense>
         </BrowserRouter>
     );
 };
