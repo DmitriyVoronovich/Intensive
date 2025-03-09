@@ -15,6 +15,7 @@ import {SelectItemWrapper} from './select-item-wrapper';
 import {onTransformData, onTransformValue} from "../model";
 import {useDebounce} from "use-debounce";
 import {useLocation, useNavigate} from "react-router-dom";
+import {onSaveToHistory} from "../../history";
 
 type ValueType = number[];
 type OnSearchFunction = SearchProps['onSearch'];
@@ -28,7 +29,7 @@ export const SearchComponent = () => {
     const platformsList = useAppSelector(selectPlatforms);
 
     const [platforms, setPlatforms] = useState<ValueType>(queryParams.platforms || []);
-    const [genres, setGenres] = useState<ValueType>(queryParams.platforms || []);
+    const [genres, setGenres] = useState<ValueType>(queryParams.genres || []);
     const [searchTerm, setSearchTerm] = useState(queryParams.search || '');
 
     const [debouncedSearchTerm] = useDebounce(searchTerm, 1500);
@@ -68,11 +69,13 @@ export const SearchComponent = () => {
 
     const onSearch: OnSearchFunction = useCallback(() => {
         const searchParams = createSearchParams();
-        dispatch(setQueryParams({
+        const queryParams = {
             search: searchTerm,
             genres: genres,
             platforms: platforms,
-        }))
+        };
+        onSaveToHistory(queryParams);
+        dispatch(setQueryParams(queryParams));
         if (locate.pathname !== PATHS.SEARCH) {
             return navigate(PATHS.SEARCH)
         }

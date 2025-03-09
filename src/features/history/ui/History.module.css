@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.contentWrapper {
+   width: 100%;
+    max-width: 1440px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.title {
+    color: #fcfdff;
+    font-size: 30px;
+}
+
+.description {
+    color: #fcfdff;
+    font-size: 30px;
+    margin-top: 100px;
+}
+
+.clearBtn {
+    align-self: end;
+    width: 150px;
+    height: 40px;
+    font-size: 16px;
+}
+
+.Table {
+    width: 100%;
+}

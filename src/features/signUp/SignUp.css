@@ -5,6 +5,6 @@
 
 .ant-btn-variant-outlined:not(:disabled):not(.ant-btn-disabled):hover {
   color: #50cd65;
-  border: 2px solid #50cd65;
+  border: 1px solid #50cd65;
   background-color: #fcfdff;
 }

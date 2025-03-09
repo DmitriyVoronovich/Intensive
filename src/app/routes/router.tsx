@@ -1,4 +1,5 @@
 import React from 'react';
+import {HistoryPage} from "../../pages/history-page";
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import {HomePage, SearchPage, SignInPage, SignUpPage} from '../../pages';
 import {AuthRoute} from './authRoute.tsx';
@@ -24,6 +25,10 @@ export const RouterProvider: React.FC = () => {
                     <Route path={PATHS.SIGNUP} element={
                         <ErrorBoundary>
                             <SignUpPage/>
+                        </ErrorBoundary>}/>
+                    <Route path={PATHS.HISTORY} element={
+                        <ErrorBoundary>
+                            <HistoryPage/>
                         </ErrorBoundary>}/>
                 </Route>
             </Routes>
