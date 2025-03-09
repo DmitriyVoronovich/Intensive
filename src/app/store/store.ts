@@ -3,6 +3,7 @@ import { gameSlice } from '../../entities';
 import { platformSlice } from '../../entities';
 import { genreSlice } from '../../entities';
 import { userSlice } from '../../entities';
+import {errorMiddleware} from "./errorMiddleware.ts";
 import { gameDetailsSlice } from '../../entities/gameDetails/model';
 
 const store = configureStore({
@@ -13,6 +14,8 @@ const store = configureStore({
     genres: genreSlice.reducer,
     user: userSlice.reducer,
   },
+  middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(errorMiddleware),
 });
 
 export type AppDispatch = typeof store.dispatch;

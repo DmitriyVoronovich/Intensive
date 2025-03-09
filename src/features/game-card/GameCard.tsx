@@ -44,7 +44,7 @@ export const GameCard = ({card}: Props) => {
                     )}
                 </InformationWrapper>
                 <InformationWrapper name={'Платформы:'}>
-                    {platforms.map((item) =>
+                    {platforms?.map((item) =>
                         <div key={item.platform.id}
                             className={css.descriptionInformation}>
                             {item.platform.name}

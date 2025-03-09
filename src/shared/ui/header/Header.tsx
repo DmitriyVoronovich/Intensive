@@ -12,7 +12,7 @@ import {
 } from '@ant-design/icons';
 import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../../../types';
-import { logoutUser, selectUser } from '../../../entities';
+import {logoutUser, selectUser, setClearSearch} from '../../../entities';
 import { STORAGE_KEYS } from '../../constant';
 
 export const Header = () => {
@@ -24,6 +24,8 @@ export const Header = () => {
   const handleSignIn = () => navigate(PATHS.SINGNIN);
   const handleHistoryClick = () => navigate(PATHS.HISTORY);
   const handleFavoritesClick = () => navigate(PATHS.FAVORITES);
+  const handleHomeClick = () => dispatch(setClearSearch());
+
 
   const handleLogout = () => {
     localStorage.removeItem(STORAGE_KEYS.USER);
@@ -33,8 +35,8 @@ export const Header = () => {
 
   return (
     <header className={css.head}>
-      <Link to={PATHS.HOME}>
-        <Logo alt={'логотип'} />
+      <Link to={PATHS.HOME} onClick={handleHomeClick}>
+        <Logo alt={'логотип'} onClick={handleHomeClick}/>
       </Link>
       {user ? (
         <div className={css.userActions}>
