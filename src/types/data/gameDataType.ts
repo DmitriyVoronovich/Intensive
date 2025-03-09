@@ -59,12 +59,12 @@ export type Requirements = {
   recommended?: string;
 };
 
-export type TGameDetails = {
+export type GameDetails = {
   id: number,
   slug: string,
   name: string,
   name_original: string,
-  description: string,
+  description_raw: string,
   released: string,
   updated: string,
   background_image: string,
