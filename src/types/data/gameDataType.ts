@@ -65,6 +65,7 @@ export type GameDetails = {
   name: string,
   name_original: string,
   description_raw: string,
+  rating: number;
   released: string,
   updated: string,
   background_image: string,
@@ -74,4 +75,5 @@ export type GameDetails = {
   platforms: Platform[],
   playtime: string,
   reddit_url: string,
+  genres?: Genres[];
 }
