@@ -6,6 +6,7 @@ import {AuthRoute} from './authRoute.tsx';
 import {ErrorBoundary, PATHS} from '../../shared';
 import { Loader } from '../../shared/ui/loading';
 import { SearchPage } from './lazy-routes.ts';
+import { GamePage } from '../../pages/game-page/GamePage.tsx';
 
 export const RouterProvider: React.FC = () => {
     return (
@@ -32,6 +33,10 @@ export const RouterProvider: React.FC = () => {
                     <Route path={PATHS.HISTORY} element={
                         <ErrorBoundary>
                             <HistoryPage/>
+                        </ErrorBoundary>}/>
+                    <Route path={PATHS.GAMEPAGE} element={
+                        <ErrorBoundary>
+                            <GamePage/>
                         </ErrorBoundary>}/>
                 </Route>
               </Routes>

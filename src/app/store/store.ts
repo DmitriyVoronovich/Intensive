@@ -4,9 +4,11 @@ import { platformSlice } from '../../entities';
 import { genreSlice } from '../../entities';
 import { userSlice } from '../../entities';
 import {errorMiddleware} from "./errorMiddleware.ts";
+import { gameDetailsSlice } from '../../entities/gameDetails/model';
 
 const store = configureStore({
   reducer: {
+    gameDetails: gameDetailsSlice.reducer,
     games: gameSlice.reducer,
     platforms: platformSlice.reducer,
     genres: genreSlice.reducer,

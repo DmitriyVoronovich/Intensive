@@ -4,6 +4,8 @@ import {selectGamesLoading} from '../../entities';
 import css from './GameCard.module.css';
 import './GameCard.css';
 import {InformationWrapper} from './information-wrapper';
+import { useNavigate } from 'react-router-dom';
+import { PATHS } from '../../shared';
 
 type Props = {
     card: GameResultType;
@@ -12,7 +14,10 @@ type Props = {
 export const GameCard = ({card}: Props) => {
     const loading = useAppSelector(selectGamesLoading);
 
-    const {background_image, name, platforms, rating, genres} = card;
+    const {id, background_image, name, platforms, rating, genres} = card;
+
+    const navigate = useNavigate();
+    const openDetails = () => navigate(PATHS.GAMEPAGE.replace(':id', `${id}`)) 
 
     return (
         <Card
@@ -41,13 +46,13 @@ export const GameCard = ({card}: Props) => {
                 <InformationWrapper name={'Платформы:'}>
                     {platforms?.map((item) =>
                         <div key={item.platform.id}
-                             className={css.descriptionInformation}>
+                            className={css.descriptionInformation}>
                             {item.platform.name}
                         </div>
                     )}
                 </InformationWrapper>
             </div>
-            <div className={css.cardMoreDetails}>
+            <div onClick={openDetails} className={css.cardMoreDetails}>
                 Подробнее
             </div>
         </Card>
