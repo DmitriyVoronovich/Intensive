@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.description {
+    margin: 20px 10px;
+    color: #fcfdff;
+    font-size: 20px;
+}

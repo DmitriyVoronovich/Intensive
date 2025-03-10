@@ -1,7 +1,8 @@
 import {ReactNode, useEffect} from 'react';
 import css from './BaseLayout.module.css';
 import {useAppDispatch} from "../../../types";
-import {getGenres, getPlatforms} from "../../../entities";
+import {getGenres, getPlatforms, logoutUser, setUser} from "../../../entities";
+import {getUserFromLS} from "../../methods";
 
 interface Props {
     header?: ReactNode;
@@ -14,7 +15,13 @@ export const BaseLayout = ({header, outlet}: Props) => {
     useEffect(() => {
         dispatch(getGenres());
         dispatch(getPlatforms());
-    }, []);
+        const storedUser = getUserFromLS();
+        if (storedUser) {
+            dispatch(setUser(storedUser));
+        } else {
+            dispatch(logoutUser());
+        }
+    }, [dispatch, outlet]);
 
     return (
         <div className={css.page}>
