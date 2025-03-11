@@ -1,8 +1,16 @@
 import './home.css';
 import {HomeCards} from './home_cards';
 import {HomeContent} from './home_content';
+import {useEffect} from "react";
+import {setClearSearch} from "../../entities";
+import {useAppDispatch} from "../../types";
 
 export const Home = () => {
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        dispatch(setClearSearch())
+    }, []);
 
     return (
         <div className="home">
