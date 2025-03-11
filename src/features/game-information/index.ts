@@ -1,2 +1,2 @@
 export { GameInformation } from './ui';
-export * from './model';
+export * from './utils';

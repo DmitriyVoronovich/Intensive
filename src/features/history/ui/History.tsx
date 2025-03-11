@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
-import {clearHistory, getColumnsWithProps, getHistory} from "../model";
+import {clearHistory, getColumnsWithProps, getHistory} from "../utils";
 import {selectGenres, selectPlatforms, setQueryParams} from "../../../entities";
 import {HistoryType, QueryParamsType, useAppDispatch, useAppSelector} from "../../../types";
 import {Button, Table} from "antd";

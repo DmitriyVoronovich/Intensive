@@ -5,7 +5,7 @@ import {getFavorites, onRemoveToFavorites, onSaveToFavorites} from "../../../fav
 import {useEffect, useState} from "react";
 import {getUserFromLS, useModal} from "../../../../shared";
 import {InformationModal} from "../information-modal";
-import {onCreateObject} from "../../model";
+import {onCreateObject} from "../../utils";
 
 const ADD_DESCRIPTION = 'Игра успешно добавлена в список избранного!';
 const REMOVE_DESCRIPTION = 'Игра успешно удалена из списка избранного!';

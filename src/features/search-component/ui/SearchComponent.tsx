@@ -12,7 +12,7 @@ import css from './SearchComponent.module.css';
 import './SearchComponent.css';
 import { useCallback, useEffect, useState} from 'react';
 import {SelectItemWrapper} from './select-item-wrapper';
-import {onTransformData, onTransformValue} from "../model";
+import {onTransformData, onTransformValue} from "../utils";
 import {useDebounce} from "use-debounce";
 import {useLocation, useNavigate} from "react-router-dom";
 import {onSaveToHistory} from "../../history";
