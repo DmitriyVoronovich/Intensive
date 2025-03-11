@@ -1,6 +1,6 @@
 import {GameDetails} from "../../../types";
 import {useEffect, useState} from "react";
-import {clearFavorites, getFavorites} from "../model";
+import {clearFavorites, getFavorites} from "../utils";
 import {GameCard} from "../../game-card";
 import css from './Favorites.module.css';
 import {Button} from "antd";

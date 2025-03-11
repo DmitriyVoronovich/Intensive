@@ -1,5 +1,6 @@
 import {QueryParamsType} from "../../../types";
 import {STORAGE_KEYS} from "../../../shared";
+import {getHistory} from "./getHistory.ts";
 
 export const onSaveToHistory = ({search, platforms, genres}: QueryParamsType) => {
     const currentHistory = getHistory();
@@ -14,13 +15,4 @@ export const onSaveToHistory = ({search, platforms, genres}: QueryParamsType) =>
     };
     const updatedHistory = [...currentHistory, newEntry];
     localStorage.setItem(STORAGE_KEYS.SEARCH_HISTORY, JSON.stringify(updatedHistory));
-};
-
-export const getHistory = () => {
-    const history = localStorage.getItem(STORAGE_KEYS.SEARCH_HISTORY);
-    return history ? JSON.parse(history) : [];
-};
-
-export const clearHistory = () => {
-    localStorage.removeItem(STORAGE_KEYS.SEARCH_HISTORY);
 };

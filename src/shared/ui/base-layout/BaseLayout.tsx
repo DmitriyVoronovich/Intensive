@@ -2,7 +2,7 @@ import {ReactNode, useEffect} from 'react';
 import css from './BaseLayout.module.css';
 import {useAppDispatch} from "../../../types";
 import {getGenres, getPlatforms, logoutUser, setUser} from "../../../entities";
-import {getUserFromLS} from "../../methods";
+import {getUserFromLS} from "../../utils";
 
 interface Props {
     header?: ReactNode;
