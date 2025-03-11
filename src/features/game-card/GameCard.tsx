@@ -1,4 +1,4 @@
-import {GameResultType, useAppSelector} from '../../types';
+import {GameDetails, GameResultType, useAppSelector} from '../../types';
 import {Card, Rate} from 'antd';
 import {selectGamesLoading} from '../../entities';
 import css from './GameCard.module.css';
@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { PATHS } from '../../shared';
 
 type Props = {
-    card: GameResultType;
+    card: GameResultType | GameDetails;
 };
 
 export const GameCard = ({card}: Props) => {

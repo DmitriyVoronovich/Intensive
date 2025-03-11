@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import {HistoryPage} from "../../pages/history-page";
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
-import {HomePage, SignInPage, SignUpPage} from '../../pages';
+import {FavoritesPage, HomePage, SignInPage, SignUpPage} from '../../pages';
 import {AuthRoute} from './authRoute.tsx';
 import {ErrorBoundary, PATHS} from '../../shared';
 import { Loader } from '../../shared/ui/loading';
@@ -37,6 +37,10 @@ export const RouterProvider: React.FC = () => {
                     <Route path={PATHS.GAMEPAGE} element={
                         <ErrorBoundary>
                             <GamePage/>
+                        </ErrorBoundary>}/>
+                    <Route path={PATHS.FAVORITES} element={
+                        <ErrorBoundary>
+                            <FavoritesPage/>
                         </ErrorBoundary>}/>
                 </Route>
               </Routes>
