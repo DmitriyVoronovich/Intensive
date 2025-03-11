@@ -1,1 +1,1 @@
-export { onSaveToFavorites, clearFavorites, getFavorites, onRemoveToFavorites } from './onSaveToFavorites.ts';
+export * from './onSaveToFavorites.ts';

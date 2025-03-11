@@ -5,6 +5,7 @@ import {getFavorites, onRemoveToFavorites, onSaveToFavorites} from "../../../fav
 import {useEffect, useState} from "react";
 import {getUserFromLS, useModal} from "../../../../shared";
 import {InformationModal} from "../information-modal";
+import {onCreateObject} from "../../model";
 
 const ADD_DESCRIPTION = 'Игра успешно добавлена в список избранного!';
 const REMOVE_DESCRIPTION = 'Игра успешно удалена из списка избранного!';
@@ -16,19 +17,20 @@ type GameInformationProps = {
 export function GameInformation({details}: GameInformationProps) {
     const [favorites, setFavorites] = useState(false);
     const [user, setUser] = useState('');
-    const {isOpen: openAdd, toggleModal: toggleAdd} = useModal();
-    const {isOpen: openRemove, toggleModal: toggleRemove} = useModal();
+    const {isOpen, toggleModal, description} = useModal();
+
+    const information = onCreateObject(details)
 
     const onAddToFavoritesGames = () => {
         onSaveToFavorites(details);
         setFavorites(true);
-        toggleAdd();
+        toggleModal(ADD_DESCRIPTION);
     };
 
     const onRemoveToFavoritesGames = () => {
         onRemoveToFavorites(details);
         setFavorites(false);
-        toggleRemove();
+        toggleModal(REMOVE_DESCRIPTION);
     };
 
     const onCheckingFavorites = () => {
@@ -62,27 +64,18 @@ export function GameInformation({details}: GameInformationProps) {
                     <img className={css.picture} src={details.background_image} alt={details.name_original}/>
                     <div className={css.block_game_information}>
                         <div className={css.game_information}>
-                            <div className={css.information}>Дата обновления: <span
-                                className={css.style_word}>{details.updated}</span></div>
-                            <div className={css.information}>Описание:</div>
-                            <div className={css.style_word}>{details.description_raw}</div>
-                            <div className={css.information}>Официальный сайт: <a className={css.style_web}
-                                                                                  href={details.website}
-                                                                                  target="_blank">{details.website}</a>
-                            </div>
-                            <div className={css.information}>Обновление: <span
-                                className={css.style_word}>{details.updated}</span></div>
-                            <div className={css.information}>Релиз: <span
-                                className={css.style_word}>{details.released}</span></div>
-                            <div className={css.information}>Время игры: <span
-                                className={css.style_word}>{details.playtime} h</span></div>
+                            {
+                                information.map((item) => {
+                                    return (<div className={css.information}>{item.title}<span
+                                        className={css.style_word}>{item.value}</span></div>)
+                                })
+                            }
                         </div>
                     </div>
                 </div>
             </div>
-            {openAdd && <InformationModal toggle={toggleAdd} description={ADD_DESCRIPTION}/>}
-            {openRemove && <InformationModal toggle={toggleRemove} description={REMOVE_DESCRIPTION}/>}
+            {isOpen && <InformationModal toggle={toggleModal} description={description}/>}
         </>
-    );
+    )
 }
 

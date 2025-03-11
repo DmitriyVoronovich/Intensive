@@ -21,7 +21,7 @@ export const Favorites = () => {
 
     return (
         <div className={css.container}>
-            {favorites.length !== 0 ? <>
+            {favorites.length ? <>
                 <div className={css.btnWrapper}>
                     <Button onClick={onClearList}>Удалить все из избранного</Button>
                 </div>
