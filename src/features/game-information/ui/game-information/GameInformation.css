@@ -1,0 +1,7 @@
+.ant-rate-star svg {
+  fill: #ccc;
+}
+
+.ant-rate-star.ant-rate-star-full svg {
+  fill: currentColor;
+}
