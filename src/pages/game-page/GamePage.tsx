@@ -1,10 +1,14 @@
 import { useParams } from 'react-router-dom';
 import { GameInformation } from '../../features/game-information';
 import { useAppDispatch, useAppSelector } from '../../types';
-import { selectGameDetalis, selectGameDetalisLoading } from '../../entities/gameDetails/model/selectors';
+import {
+  selectGameDetalis,
+  selectGameDetalisLoading
+} from '../../entities/gameDetails/model/selectors';
 import { getGameDetails } from '../../entities';
 import { useEffect } from 'react';
 import css from './GamePage.module.css';
+import {getGameScreenshots} from "../../entities/gameDetails";
 
 export const GamePage = () => {
   const { id } = useParams();
@@ -16,8 +20,9 @@ export const GamePage = () => {
   useEffect(() => {
     if (id) {
       dispatch(getGameDetails(id));
+      dispatch(getGameScreenshots(id));
     }
-  }, [dispatch, id]);
+  }, []);
 
   return loading ? (
     <div className={css.container}>

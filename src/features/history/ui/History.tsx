@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { clearHistory, getColumnsWithProps, getHistory } from '../utils';
 import {
+  getGenres, getPlatforms,
   selectGenres,
   selectPlatforms,
   setQueryParams,
@@ -24,9 +25,11 @@ export const History = () => {
   const platformsList = useAppSelector(selectPlatforms);
   const [history, setHistory] = useState<HistoryType[]>([]);
 
-  useEffect(() => {
-    setHistory(getHistory());
-  }, []);
+    useEffect(() => {
+        setHistory(getHistory());
+        dispatch(getGenres());
+        dispatch(getPlatforms());
+    }, []);
 
   const restoreSearch = ({ search, genres, platforms }: QueryParamsType) => {
     const queryParams = {

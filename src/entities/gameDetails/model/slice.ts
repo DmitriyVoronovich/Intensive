@@ -1,35 +1,44 @@
-import { createSlice, isPending, isRejected } from '@reduxjs/toolkit';
-import { getGameDetails } from '../api';
-import { GameDetails } from '../../../types';
+import {createSlice, isPending, isRejected} from '@reduxjs/toolkit';
+import {getGameDetails, getGameScreenshots} from '../api';
+import {GameDetails, Screenshots} from '../../../types';
 
-type GameDetailsState = {
-  details?: GameDetails;
-  error?: string;
-  loading: boolean;
+type InitialStateType = {
+    details?: GameDetails;
+    error?: string;
+    loading: boolean;
+    screenshots: Screenshots | null
 };
 
-const initialState: GameDetailsState = {
-  loading: true,
+const initialState: InitialStateType = {
+    loading: true,
+    screenshots: null
+};
+
+const setLoading = (state: InitialStateType, loading: boolean): void => {
+    state.loading = loading;
 };
 
 export const gameDetailsSlice = createSlice({
-  name: 'gameDetails',
-  initialState,
-  reducers: {},
-  extraReducers: (builder) => {
-    builder
-      .addCase(getGameDetails.fulfilled, (state, action) => {
-        state.details = action.payload;
-        state.loading = false;
-        state.error = initialState.error;
-      })
-      .addMatcher(isPending(getGameDetails), (state) => {
-        state.loading = true;
-      })
-      .addMatcher(isRejected(getGameDetails), (state) => {
-        state.loading = false;
-        state.details = initialState.details;
-      });
-  },
+    name: 'gameDetails',
+    initialState,
+    reducers: {},
+    extraReducers: (builder) => {
+        builder
+            .addCase(getGameDetails.fulfilled, (state, action) => {
+                state.details = action.payload;
+                setLoading(state, false);
+                state.error = initialState.error;
+            })
+            .addCase(getGameScreenshots.fulfilled, (state, action) => {
+                state.screenshots = action.payload;
+                setLoading(state, false);
+            })
+            .addMatcher(isPending(getGameDetails, getGameScreenshots), (state) => {
+                setLoading(state, true);
+            })
+            .addMatcher(isRejected(getGameDetails, getGameScreenshots), (state) => {
+                setLoading(state, false);
+            });
+    },
 });
 

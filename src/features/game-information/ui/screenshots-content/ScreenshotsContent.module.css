@@ -1,0 +1,24 @@
+.screenshotsWrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid #50cd65;
+}
+
+.screenshotsImgWrapper {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.screenshotsTitle {
+    color: rgb(80, 205, 100);
+    margin: 20px 0;
+    font-size: 20px;
+}
+
+.screenshotsImg {
+    max-width: 300px;
+    max-height: 300px;
+}
