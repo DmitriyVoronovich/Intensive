@@ -23,6 +23,7 @@ export type GameResultType = {
   suggestions_count: number;
   updated: string;
   platforms: Platform[];
+  tags: Tags[];
   genres?: Genres[];
   esrb_rating?: EsrbRating;
   metacritic?: number;
@@ -35,6 +36,15 @@ export type Genres = {
   name: string;
   slug: string;
 };
+
+export type Tags = {
+  id: number,
+  name: string,
+  slug: string,
+  language: string,
+  games_count: number,
+  image_background: string;
+}
 
 export type EsrbRating = {
   id: number;
@@ -75,5 +85,6 @@ export type GameDetails = {
   platforms: Platform[],
   playtime: string,
   reddit_url: string,
+  tags: Tags[];
   genres?: Genres[];
 }
