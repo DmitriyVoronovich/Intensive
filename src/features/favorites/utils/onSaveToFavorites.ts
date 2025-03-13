@@ -1,8 +1,8 @@
 import {getUserFromLS} from "../../../shared";
-import {GameDetails} from "../../../types";
+import {GameResultType} from "../../../types";
 import {getFavorites} from "./getFavorites.ts";
 
-export const onSaveToFavorites = (game: GameDetails) => {
+export const onSaveToFavorites = (game: GameResultType) => {
     const user = getUserFromLS();
     const currentFavorites = getFavorites();
 
