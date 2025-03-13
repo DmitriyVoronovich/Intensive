@@ -12,40 +12,28 @@ export const RouterProvider: React.FC = () => {
     return (
         <BrowserRouter>
             <Suspense fallback={<Loader/>}>
-                <Routes>
-                    <Route element={<AuthRoute isProtected/>}>
-                        <Route path={PATHS.HISTORY} element={
-                            <ErrorBoundary>
-                                <HistoryPage/>
-                            </ErrorBoundary>}/>
-                        <Route path={PATHS.FAVORITES} element={
-                            <ErrorBoundary>
-                                <FavoritesPage/>
-                            </ErrorBoundary>}/>
-                    </Route>
-                    <Route element={<AuthRoute/>}>
-                        <Route path={PATHS.HOME} element={
-                            <ErrorBoundary>
-                                <HomePage/>
-                            </ErrorBoundary>}/>
-                        <Route path={PATHS.SINGNIN} element={
-                            <ErrorBoundary>
-                                <SignInPage/>
-                            </ErrorBoundary>}/>
-                        <Route path={PATHS.SEARCH} element={
-                            <ErrorBoundary>
-                                <SearchPage/>
-                            </ErrorBoundary>}/>
-                        <Route path={PATHS.SIGNUP} element={
-                            <ErrorBoundary>
-                                <SignUpPage/>
-                            </ErrorBoundary>}/>
-                        <Route path={PATHS.GAMEPAGE} element={
-                            <ErrorBoundary>
-                                <GamePage/>
-                            </ErrorBoundary>}/>
-                    </Route>
-                </Routes>
+                <ErrorBoundary>
+                    <Routes>
+                        <Route element={<AuthRoute isProtected/>}>
+                            <Route path={PATHS.HISTORY} element={
+                                <HistoryPage/>}/>
+                            <Route path={PATHS.FAVORITES} element={
+                                <FavoritesPage/>}/>
+                        </Route>
+                        <Route element={<AuthRoute/>}>
+                            <Route path={PATHS.HOME} element={
+                                <HomePage/>}/>
+                            <Route path={PATHS.SINGNIN} element={
+                                <SignInPage/>}/>
+                            <Route path={PATHS.SEARCH} element={
+                                <SearchPage/>}/>
+                            <Route path={PATHS.SIGNUP} element={
+                                <SignUpPage/>}/>
+                            <Route path={PATHS.GAMEPAGE} element={
+                                <GamePage/>}/>
+                        </Route>
+                    </Routes>
+                </ErrorBoundary>
             </Suspense>
         </BrowserRouter>
     );
