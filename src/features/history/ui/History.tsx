@@ -1,11 +1,18 @@
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {clearHistory, getColumnsWithProps, getHistory} from "../utils";
-import {getSearchGames, selectGenres, selectPlatforms, setQueryParams} from "../../../entities";
+import {
+    getGenres,
+    getPlatforms,
+    getSearchGames,
+    selectGenres,
+    selectPlatforms,
+    setQueryParams
+} from "../../../entities";
 import {HistoryType, QueryParamsType, useAppDispatch, useAppSelector} from "../../../types";
-import {Button, Table} from "antd";
+import {Table} from "antd";
 import css from './History.module.css';
-import {createParams, PATHS} from "../../../shared";
+import {BaseButton, createParams, PATHS} from "../../../shared";
 
 export const History = () => {
     const dispatch = useAppDispatch();
@@ -16,6 +23,8 @@ export const History = () => {
 
     useEffect(() => {
         setHistory(getHistory());
+        dispatch(getGenres());
+        dispatch(getPlatforms());
     }, []);
 
     const restoreSearch = ({search, genres, platforms}: QueryParamsType) => {
@@ -44,9 +53,16 @@ export const History = () => {
                     <p className={css.description}>История поисков пуста.</p>
                 ) : (
                     <>
-                        <Button className={css.clearBtn} onClick={clearHistoryHandler}>Очистить историю</Button>
-                        <Table<HistoryType> columns={columns} dataSource={history} pagination={false}
-                                            className={css.Table} rowKey={'id'}/>
+                        <BaseButton onClick={clearHistoryHandler}>
+                            Очистить историю
+                        </BaseButton>
+                        <Table<HistoryType>
+                            columns={columns}
+                            dataSource={history}
+                            pagination={false}
+                            className={css.Table}
+                            rowKey={'id'}
+                        />
                     </>
                 )}
             </div>

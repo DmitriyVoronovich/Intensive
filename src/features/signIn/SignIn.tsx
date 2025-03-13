@@ -1,11 +1,12 @@
 import React from 'react';
-import { Button, Form, Input, message } from 'antd';
+import { Form, Input, message } from 'antd';
 import { KeyOutlined, UserOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { PATHS, STORAGE_KEYS } from '../../shared';
 import css from './SignIn.module.css';
 import './SignIn.css';
 import { User } from '../../types';
+import { BaseButton } from '../../shared';
 
 export const SignIn: React.FC = () => {
   const navigate = useNavigate();
@@ -69,16 +70,8 @@ export const SignIn: React.FC = () => {
 
           <Form.Item>
             <div className={css.btnContainer}>
-              <Button htmlType="submit" className={css.btn}>
-                Подтвердить
-              </Button>
-              <Button
-                htmlType="button"
-                className={css.btnBack}
-                onClick={onGoHome}
-              >
-                Назад
-              </Button>
+              <BaseButton buttonCategory={'submit'}>Подтвердить</BaseButton>
+              <BaseButton onClick={onGoHome}>Назад</BaseButton>
             </div>
           </Form.Item>
         </Form>

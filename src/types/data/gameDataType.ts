@@ -83,7 +83,7 @@ export type GameDetails = {
   website: string,
   suggestions_count: 0,
   platforms: Platform[],
-  playtime: string,
+  playtime: number,
   reddit_url: string,
   tags: Tags[];
   genres?: Genres[];

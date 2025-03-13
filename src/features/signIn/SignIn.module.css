@@ -50,16 +50,3 @@
   flex-direction: row;
   justify-content: space-between;
 }
-
-.btn {
-  background-color: #50cd65;
-  color: #11172d;
-  font-size: 17px;
-}
-
-.btnBack {
-  color: #11172d;
-  border: 2px solid #50cd65;
-  background-color: #fcfdff;
-  font-size: 17px;
-}

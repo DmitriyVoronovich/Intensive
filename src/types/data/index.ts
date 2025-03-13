@@ -7,3 +7,4 @@ export type {
 export type { QueryParamsType } from './queryParamsType.ts';
 export type { User } from './user.ts';
 export type { HistoryType } from './historyDataType.ts'
+export type { Screenshots } from './gameDetailsDataType.ts'

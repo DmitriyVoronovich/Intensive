@@ -2,8 +2,3 @@
   color: #fcfdff;
   font-size: 17px;
 }
-
-.ant-btn-variant-outlined:not(:disabled):not(.ant-btn-disabled):hover {
-  color: #50cd65;
-  background-color: #fcfdff;
-}

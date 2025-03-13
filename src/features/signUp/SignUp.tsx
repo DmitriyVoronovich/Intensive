@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Button, message } from 'antd';
+import { Form, Input, message } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { PATHS } from '../../shared';
 import styles from './SignUp.module.css';
@@ -7,6 +7,7 @@ import './SignUp.css';
 import { addUser, isUserExists } from './model';
 import { passwordRules, usernameRules } from './model';
 import { User } from '../../types';
+import { BaseButton } from '../../shared';
 
 export const SignUp: React.FC = () => {
   const navigate = useNavigate();
@@ -46,22 +47,12 @@ export const SignUp: React.FC = () => {
           >
             <Input.Password type="password" placeholder="Ваш пароль" />
           </Form.Item>
-          <div className={styles.buttons}>
-            <Form.Item>
-              <Button htmlType="submit" className={styles.button}>
-                Подтвердить
-              </Button>
-            </Form.Item>
-            <Form.Item>
-              <Button
-                htmlType="button"
-                className={styles.buttonBack}
-                onClick={returnHome}
-              >
-                Назад
-              </Button>
-            </Form.Item>
-          </div>
+          <Form.Item>
+            <div className={styles.buttons}>
+              <BaseButton buttonCategory={'submit'}>Подтвердить</BaseButton>
+              <BaseButton onClick={returnHome}>Назад</BaseButton>
+            </div>
+          </Form.Item>
         </Form>
       </div>
     </div>

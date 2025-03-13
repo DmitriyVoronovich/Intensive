@@ -4,10 +4,11 @@ import { useAppDispatch, useAppSelector } from '../../types';
 import {
   selectGameDetails,
   selectGameDetailsLoading,
-} from '../../entities/gameDetails/model';
+} from '../../entities/gameDetails';
 import { getGameDetails } from '../../entities';
 import { useEffect } from 'react';
 import css from './GamePage.module.css';
+import {getGameScreenshots} from "../../entities/gameDetails";
 
 export const GamePage = () => {
   const { id } = useParams();
@@ -19,8 +20,9 @@ export const GamePage = () => {
   useEffect(() => {
     if (id) {
       dispatch(getGameDetails(id));
+      dispatch(getGameScreenshots(id));
     }
-  }, [dispatch, id]);
+  }, []);
 
   return loading ? (
     <div className={css.container}>
