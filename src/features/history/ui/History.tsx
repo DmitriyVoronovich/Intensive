@@ -1,14 +1,7 @@
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {clearHistory, getColumnsWithProps, getHistory} from "../utils";
-import {
-    getGenres,
-    getPlatforms,
-    getSearchGames,
-    selectGenres,
-    selectPlatforms,
-    setQueryParams
-} from "../../../entities";
+import {getSearchGames, selectGenres, selectPlatforms, setQueryParams} from "../../../entities";
 import {HistoryType, QueryParamsType, useAppDispatch, useAppSelector} from "../../../types";
 import {Table} from "antd";
 import css from './History.module.css';
@@ -23,8 +16,6 @@ export const History = () => {
 
     useEffect(() => {
         setHistory(getHistory());
-        dispatch(getGenres());
-        dispatch(getPlatforms());
     }, []);
 
     const restoreSearch = ({search, genres, platforms}: QueryParamsType) => {

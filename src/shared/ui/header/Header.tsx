@@ -11,17 +11,27 @@ import {
     UserAddOutlined,
     UserOutlined,
 } from '@ant-design/icons';
-import {useDispatch} from 'react-redux';
-import {useAppSelector} from '../../../types';
-import {logoutUser, selectUser} from '../../../entities';
+import {useAppDispatch, useAppSelector} from '../../../types';
+import {getGenres, getPlatforms, logoutUser, selectUser} from '../../../entities';
 import {BaseButton} from '../base-button';
+import {useEffect, useRef} from "react";
 
 export const Header = () => {
     const navigate = useNavigate();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const location = useLocation();
     const user = useAppSelector(selectUser);
     const isActive = (path: string) => location.pathname === path;
+
+    const dataLoaded = useRef(false);
+
+    useEffect(() => {
+        if (!dataLoaded.current) {
+            dispatch(getGenres());
+            dispatch(getPlatforms());
+            dataLoaded.current = true;
+        }
+    }, [dispatch]);
 
     const handleSignUp = () => navigate(PATHS.SIGNUP);
     const handleSignIn = () => navigate(PATHS.SINGNIN);
