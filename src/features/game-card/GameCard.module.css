@@ -3,6 +3,8 @@
     height: 510px;
     max-height: 510px;
     text-align: center;
+    background-color: rgba(15, 19, 36, 0.8);
+    cursor: auto;
 }
 
 .cardMoreDetails {
@@ -13,7 +15,7 @@
     font-size: 16px;
     text-align: center;
     cursor: pointer;
-    color: #11172d;
+    color: #fcfdff;
     transition: color 0.3s;
     border-top: 1px solid #50cd65;
 }
@@ -21,6 +23,7 @@
 .cardName {
     margin: 0 0 16px 0;
     font-size: 16px;
+    color: #50cd65;
 }
 
 .cardImgContainer {
@@ -33,6 +36,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border: 1px solid #50cd65;
 }
 
 .cardInformationWrapper {
@@ -45,4 +49,5 @@
 
 .descriptionInformation {
     margin-right: 10px;
+    color: #fcfdff;
 }
