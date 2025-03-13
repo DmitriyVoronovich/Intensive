@@ -3,7 +3,7 @@ import {HomeCards} from './home_cards';
 import {HomeContent} from './home_content';
 import {useEffect} from "react";
 import {useAppDispatch} from "../../types";
-import {getGenres, getPlatforms} from "../../entities";
+import {getGenres, getPlatforms, setClearSearch} from "../../entities";
 
 export const Home = () => {
     const dispatch = useAppDispatch();
@@ -11,6 +11,7 @@ export const Home = () => {
     useEffect(() => {
         dispatch(getGenres());
         dispatch(getPlatforms());
+        dispatch(setClearSearch())
     }, []);
 
     return (

@@ -2,9 +2,9 @@ import { useParams } from 'react-router-dom';
 import { GameInformation } from '../../features/game-information';
 import { useAppDispatch, useAppSelector } from '../../types';
 import {
-  selectGameDetalis,
-  selectGameDetalisLoading
-} from '../../entities/gameDetails/model/selectors';
+  selectGameDetails,
+  selectGameDetailsLoading,
+} from '../../entities/gameDetails/model';
 import { getGameDetails } from '../../entities';
 import { useEffect } from 'react';
 import css from './GamePage.module.css';
@@ -14,8 +14,8 @@ export const GamePage = () => {
   const { id } = useParams();
 
   const dispatch = useAppDispatch();
-  const details = useAppSelector(selectGameDetalis);
-  const loading = useAppSelector(selectGameDetalisLoading);
+  const details = useAppSelector(selectGameDetails);
+  const loading = useAppSelector(selectGameDetailsLoading);
 
   useEffect(() => {
     if (id) {

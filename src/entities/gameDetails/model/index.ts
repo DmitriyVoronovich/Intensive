@@ -1,2 +1,2 @@
 export { gameDetailsSlice } from './slice.ts';
-export { selectGameDetalis } from './selectors.ts';
+export { selectGameDetails, selectGameDetailsLoading } from './selectors.ts';

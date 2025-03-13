@@ -1,26 +1,24 @@
 import Search from 'antd/es/input/Search';
-import {BaseSelect, PATHS} from '../../../shared';
+import {BaseSelect, createParams, PATHS} from '../../../shared';
 import {SearchProps} from 'antd/es/input';
-import {
-    getSearchGames,
-    selectGenres,
-    selectPlatforms, selectQueryParams,
-    setQueryParams
-} from '../../../entities';
+import {getSearchGames, selectGenres, selectPlatforms, selectQueryParams, setQueryParams} from '../../../entities';
 import {useAppDispatch, useAppSelector} from '../../../types';
 import css from './SearchComponent.module.css';
 import './SearchComponent.css';
-import { useCallback, useEffect, useState} from 'react';
+import {useCallback, useEffect, useState} from 'react';
 import {SelectItemWrapper} from './select-item-wrapper';
-import {onTransformData, onTransformValue} from "../utils";
+import {onTransformData} from "../utils";
 import {useDebounce} from "use-debounce";
 import {useLocation, useNavigate} from "react-router-dom";
 import {onSaveToHistory} from "../../history";
 
 type ValueType = number[];
 type OnSearchFunction = SearchProps['onSearch'];
+type Props = {
+    disableAutoSearch?: boolean;
+}
 
-export const SearchComponent = () => {
+export const SearchComponent = ({disableAutoSearch = false}: Props) => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const locate = useLocation();
@@ -35,25 +33,10 @@ export const SearchComponent = () => {
     const [debouncedSearchTerm] = useDebounce(searchTerm, 1500);
 
     const createSearchParams = useCallback(() => {
-        const params: {
-            search?: string;
-            genres?: string;
-            platforms?: string;
-        } = {};
-
-        if (debouncedSearchTerm && debouncedSearchTerm.trim() !== '') {
-            params.search = debouncedSearchTerm.trim();
+        const query = {
+            search: debouncedSearchTerm, genres, platforms
         }
-
-        if (genres && genres.length !== 0) {
-            params.genres = onTransformValue(genres);
-        }
-
-        if (platforms && platforms.length !== 0) {
-            params.platforms = onTransformValue(platforms);
-        }
-
-        return params;
+        return createParams(query)
     }, [debouncedSearchTerm, genres, platforms]);
 
     const performSearch = (searchParams: ReturnType<typeof createSearchParams>) => {
@@ -63,9 +46,11 @@ export const SearchComponent = () => {
     };
 
     useEffect(() => {
-        const searchParams = createSearchParams();
-        performSearch(searchParams);
-    }, [createSearchParams]);
+        if (!disableAutoSearch) {
+            const searchParams = createSearchParams();
+            performSearch(searchParams);
+        }
+    }, [createSearchParams, disableAutoSearch]);
 
     const onSearch: OnSearchFunction = useCallback(() => {
         const searchParams = createSearchParams();

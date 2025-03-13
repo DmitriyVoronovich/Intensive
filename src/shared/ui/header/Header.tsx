@@ -13,7 +13,7 @@ import {
 } from '@ant-design/icons';
 import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../../../types';
-import { logoutUser, selectUser, setClearSearch } from '../../../entities';
+import { logoutUser, selectUser } from '../../../entities';
 import { STORAGE_KEYS } from '../../constant';
 import { BaseButton } from '../base-button';
 
@@ -24,12 +24,12 @@ export const Header = () => {
   const user = useAppSelector(selectUser);
   const isActive = (path: string) => location.pathname === path;
 
-  const handleSignUp = () => navigate(PATHS.SIGNUP);
-  const handleSignIn = () => navigate(PATHS.SINGNIN);
-  const handleHistoryClick = () => navigate(PATHS.HISTORY);
-  const handleFavoritesClick = () => navigate(PATHS.FAVORITES);
-  const handleSearchClick = () => navigate(PATHS.SEARCH);
-  const handleHomeClick = () => dispatch(setClearSearch());
+    const handleSignUp = () => navigate(PATHS.SIGNUP);
+    const handleSignIn = () => navigate(PATHS.SINGNIN);
+    const handleHistoryClick = () => navigate(PATHS.HISTORY);
+    const handleFavoritesClick = () => navigate(PATHS.FAVORITES);
+    const handleSearchClick = () => navigate(PATHS.SEARCH);
+    const handleHomeClick = () => navigate(PATHS.HOME);
 
   const handleLogout = () => {
     localStorage.removeItem(STORAGE_KEYS.USER);
@@ -39,7 +39,7 @@ export const Header = () => {
 
   return (
     <header className={css.head}>
-      <Link className={css.logo} to={PATHS.HOME} onClick={handleHomeClick}>
+      <Link className={css.logo} to={PATHS.HOME}>
         <Logo alt={'логотип'} onClick={handleHomeClick} />
       </Link>
       {user ? (
