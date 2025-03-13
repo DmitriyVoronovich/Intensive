@@ -15,13 +15,13 @@ import {useAppDispatch, useAppSelector} from '../../../types';
 import {getGenres, getPlatforms, logoutUser, selectUser} from '../../../entities';
 import {BaseButton} from '../base-button';
 import {useEffect, useRef} from "react";
+import {isButtonActive} from "../../utils";
 
 export const Header = () => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const location = useLocation();
     const user = useAppSelector(selectUser);
-    const isActive = (path: string) => location.pathname === path;
 
     const dataLoaded = useRef(false);
 
@@ -56,21 +56,21 @@ export const Header = () => {
                     <div className={css.buttons}>
                         <BaseButton
                             buttonCategory={'general'}
-                            isActive={isActive(PATHS.SEARCH)}
+                            isActive={isButtonActive(PATHS.SEARCH, location.pathname)}
                             onClick={handleSearchClick}
                         >
                             <SearchOutlined/> Поиск
                         </BaseButton>
                         <BaseButton
                             buttonCategory={'general'}
-                            isActive={isActive(PATHS.FAVORITES)}
+                            isActive={isButtonActive(PATHS.FAVORITES, location.pathname)}
                             onClick={handleFavoritesClick}
                         >
                             <HeartOutlined/> Избранное
                         </BaseButton>
                         <BaseButton
                             buttonCategory={'general'}
-                            isActive={isActive(PATHS.HISTORY)}
+                            isActive={isButtonActive(PATHS.HISTORY, location.pathname)}
                             onClick={handleHistoryClick}
                         >
                             <ClockCircleOutlined/> История
