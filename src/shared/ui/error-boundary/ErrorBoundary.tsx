@@ -1,5 +1,6 @@
 import {Component, ReactNode} from "react";
 import css from './ErrorBoundary.module.css';
+import {Result} from "antd";
 
 type ErrorBoundaryProps = {
     children: ReactNode;
@@ -24,10 +25,11 @@ export default class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBo
     render() {
         if (this.state.hasError) {
             return <div className={css.container}>
-                <div className={css.contentWrapper}>
-                    <h2 className={css.error}>404</h2>
-                    <p className={css.errorDescription}>Что-то пошло не так...</p>
-                </div>
+                <Result
+                    status="404"
+                    title="404"
+                    subTitle="Что-то пошло не так..."
+                />
             </div>;
         }
 
