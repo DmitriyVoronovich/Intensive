@@ -43,7 +43,7 @@ export const GameCard = ({card}: Props) => {
             </>
             <div className={css.cardInformationWrapper}>
                 <InformationWrapper name={'Рейтинг:'}>
-                    {rating === 0 ? <div className={css.descriptionInformation}> Оценок пока нет </div> :
+                    {!rating ? <div className={css.descriptionInformation}> Оценок пока нет </div> :
                         <Rate value={rating} disabled/>}
                 </InformationWrapper>
                 <InformationWrapper name={'Жанр:'}>
