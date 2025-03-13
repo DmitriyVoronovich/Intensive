@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from '../../types';
 import {
   selectGameDetails,
   selectGameDetailsLoading,
-} from '../../entities/gameDetails/model';
+} from '../../entities/gameDetails';
 import { getGameDetails } from '../../entities';
 import { useEffect } from 'react';
 import css from './GamePage.module.css';

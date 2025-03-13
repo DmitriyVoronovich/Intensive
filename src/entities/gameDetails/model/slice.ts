@@ -3,10 +3,10 @@ import {getGameDetails, getGameScreenshots} from '../api';
 import {GameDetails, Screenshots} from '../../../types';
 
 type InitialStateType = {
+    loading: boolean;
+    screenshots: Screenshots | null;
     details?: GameDetails;
     error?: string;
-    loading: boolean;
-    screenshots: Screenshots | null
 };
 
 const initialState: InitialStateType = {
