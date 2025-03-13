@@ -2,7 +2,7 @@ import type {SelectProps} from 'antd';
 import {Select} from 'antd';
 import css from './BaseSelect.module.css';
 
-type Props = {
+export type Props = {
     placeholder: string;
     options: { value: number; label: string }[];
     onChange: (value: number[]) => void;
