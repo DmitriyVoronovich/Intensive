@@ -12,7 +12,7 @@ import {
 } from '@ant-design/icons';
 import {useDispatch} from 'react-redux';
 import {useAppSelector} from '../../../types';
-import {logoutUser, selectUser, setClearSearch} from '../../../entities';
+import {logoutUser, selectUser} from '../../../entities';
 
 export const Header = () => {
     const navigate = useNavigate();
@@ -23,7 +23,7 @@ export const Header = () => {
     const handleSignIn = () => navigate(PATHS.SINGNIN);
     const handleHistoryClick = () => navigate(PATHS.HISTORY);
     const handleFavoritesClick = () => navigate(PATHS.FAVORITES);
-    const handleHomeClick = () => dispatch(setClearSearch());
+    const handleHomeClick = () => navigate(PATHS.HOME);
 
     const handleLogout = () => {
         localStorage.removeItem(STORAGE_KEYS.USER);
@@ -34,7 +34,7 @@ export const Header = () => {
     return (
         <header className={css.head}>
             <Link to={PATHS.HOME} onClick={handleHomeClick}>
-                <Logo alt={'логотип'} onClick={handleHomeClick}/>
+                <Logo alt={'логотип'}/>
             </Link>
             {user ? (
                 <div className={css.userActions}>
