@@ -1,1 +1,1 @@
-export { HistoryPage } from './HistoryPage.tsx'
+export { HistoryPage } from './HistoryPage.tsx';

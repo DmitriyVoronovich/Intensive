@@ -1,21 +1,21 @@
 import './home.css';
-import {HomeCards} from './home_cards';
-import {HomeContent} from './home_content';
-import {useEffect} from "react";
-import {useAppDispatch} from "../../types";
-import {setClearSearch} from "../../entities";
+import { HomeCards } from './home_cards';
+import { HomeContent } from './home_content';
+import { useEffect } from 'react';
+import { useAppDispatch } from '../../types';
+import { setClearSearch } from '../../entities';
 
 export const Home = () => {
-    const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
 
-    useEffect(() => {
-        dispatch(setClearSearch())
-    }, [dispatch]);
+  useEffect(() => {
+    dispatch(setClearSearch());
+  }, [dispatch]);
 
-    return (
-        <div className="home">
-            <HomeContent/>
-            <HomeCards/>
-        </div>
-    );
+  return (
+    <div className="home">
+      <HomeContent />
+      <HomeCards />
+    </div>
+  );
 };

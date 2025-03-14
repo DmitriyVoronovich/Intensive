@@ -1,1 +1,1 @@
-export { HomeTitle } from "./HomeTitle";
+export { HomeTitle } from './HomeTitle';

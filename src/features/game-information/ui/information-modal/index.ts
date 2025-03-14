@@ -1,1 +1,1 @@
-export { InformationModal } from './InformationModal.tsx'
+export { InformationModal } from './InformationModal.tsx';

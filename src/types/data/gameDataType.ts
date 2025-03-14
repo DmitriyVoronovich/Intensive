@@ -27,7 +27,7 @@ export type GameResultType = {
   genres?: Genres[];
   esrb_rating?: EsrbRating;
   metacritic?: number;
-  description_raw?: string
+  description_raw?: string;
 };
 
 export type Genres = {
@@ -39,13 +39,13 @@ export type Genres = {
 };
 
 export type Tags = {
-  id: number,
-  name: string,
-  slug: string,
-  language: string,
-  games_count: number,
+  id: number;
+  name: string;
+  slug: string;
+  language: string;
+  games_count: number;
   image_background: string;
-}
+};
 
 export type EsrbRating = {
   id: number;

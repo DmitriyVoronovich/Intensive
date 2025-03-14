@@ -1,1 +1,2 @@
-export const isButtonActive = (path: string, location: string) => location === path;
+export const isButtonActive = (path: string, location: string) =>
+  location === path;

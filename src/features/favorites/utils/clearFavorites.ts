@@ -1,7 +1,7 @@
-import {getUserFromLS} from "../../../shared";
+import { getUserFromLS } from '../../../shared';
 
 export const clearFavorites = () => {
-    const user = getUserFromLS();
+  const user = getUserFromLS();
 
-    localStorage.removeItem(user.username);
+  localStorage.removeItem(user.username);
 };

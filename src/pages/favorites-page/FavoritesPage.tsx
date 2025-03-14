@@ -1,5 +1,5 @@
-import {Favorites} from "../../features";
+import { Favorites } from '../../features';
 
 export const FavoritesPage = () => {
-    return <Favorites/>
+  return <Favorites />;
 };

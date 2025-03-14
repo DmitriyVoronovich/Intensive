@@ -1,5 +1,5 @@
-import {History} from '../../features'
+import { History } from '../../features';
 
 export const HistoryPage = () => {
-    return <History/>;
+  return <History />;
 };
