@@ -9,6 +9,7 @@ import { getGameDetails } from '../../entities';
 import { useEffect } from 'react';
 import css from './GamePage.module.css';
 import {getGameScreenshots} from "../../entities/gameDetails";
+import {Spin} from "antd";
 
 export const GamePage = () => {
   const { id } = useParams();
@@ -26,7 +27,7 @@ export const GamePage = () => {
 
   return loading ? (
     <div className={css.container}>
-      <p style={{ color: "rgb(80, 205, 100)" }}>идёт загрузка</p>
+      <Spin size="large" />
     </div>
   ) : (
     details && <GameInformation details={details} />
