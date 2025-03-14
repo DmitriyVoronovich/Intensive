@@ -1,11 +1,11 @@
-import {GameDetails} from "../../../types";
+import {GameResultType} from "../../../types";
 
 type ReturnValue = {
     title: string,
     value: string | number,
 }
 
-export const onCreateObject = (details: GameDetails): ReturnValue[] => {
+export const onCreateObject = (details: GameResultType): ReturnValue[] => {
 
     const {updated, released, playtime, rating, genres, platforms, tags} = details;
 

@@ -1,11 +1,11 @@
 import {createSlice, isPending, isRejected} from '@reduxjs/toolkit';
 import {getGameDetails, getGameScreenshots} from '../api';
-import {GameDetails, Screenshots} from '../../../types';
+import {GameResultType, Screenshots} from '../../../types';
 
 type InitialStateType = {
     loading: boolean;
     screenshots: Screenshots | null;
-    details?: GameDetails;
+    details?: GameResultType;
     error?: string;
 };
 

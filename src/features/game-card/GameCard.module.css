@@ -7,6 +7,17 @@
     cursor: auto;
 }
 
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 16px 0;
+}
+
+.btnWrapper {
+    align-self: flex-start;
+}
+
 .cardMoreDetails {
     height: 50px;
     display: flex;
@@ -21,7 +32,7 @@
 }
 
 .cardName {
-    margin: 0 0 16px 0;
+    margin: 0 5px 0 0;
     font-size: 16px;
     color: #50cd65;
 }
@@ -37,6 +48,7 @@
     height: 100%;
     object-fit: cover;
     border: 1px solid #50cd65;
+    color: #fcfdff;
 }
 
 .cardInformationWrapper {

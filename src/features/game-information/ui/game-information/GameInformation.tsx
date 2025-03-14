@@ -1,4 +1,4 @@
-import {GameDetails} from '../../../../types';
+import {GameResultType} from '../../../../types';
 import css from './GameInformation.module.css';
 import './GameInformation.css';
 import {Rate} from 'antd';
@@ -15,7 +15,7 @@ const REMOVE_DESCRIPTION = 'Игра успешно удалена из спис
 const BUY_DESCRIPTION = 'Игры для покупки временно не доступны. Попробуйте позже.';
 
 type GameInformationProps = {
-    details: GameDetails;
+    details: GameResultType;
 };
 
 export function GameInformation({details}: GameInformationProps) {
@@ -39,21 +39,15 @@ export function GameInformation({details}: GameInformationProps) {
 
     const onBuyGames = () => toggleModal(BUY_DESCRIPTION);
 
-    const onCheckingFavorites = () => {
-        if (user) {
-            const favoritesValue = getFavorites();
-            const favorites = favoritesValue.find((item: GameDetails) => item.id === details.id)
-            setFavorites(favorites)
-        }
-    }
-
     useEffect(() => {
-        onCheckingFavorites();
         const user = getUserFromLS();
         if (user) {
             setUser(user.username);
+            const favoritesValue = getFavorites();
+            const isFavorite = favoritesValue.some((item: GameResultType) => item.id === details.id);
+            setFavorites(isFavorite);
         }
-    }, []);
+    }, [details.id]);
 
     return (
         <>
@@ -83,7 +77,7 @@ export function GameInformation({details}: GameInformationProps) {
                     )}
                 </div>
                 <div className={css.content}>
-                    <img className={css.picture} src={details.background_image} alt={details.name_original}/>
+                    <img className={css.picture} src={details.background_image} alt={details.name}/>
                     <div className={css.block_game_information}>
                         <div className={css.game_information}>
                             {
