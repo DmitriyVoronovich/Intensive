@@ -1,8 +1,8 @@
-import {getUserFromLS} from "../../../shared";
+import { getUserFromLS } from '../../../shared';
 
 export const getFavorites = () => {
-    const user = getUserFromLS();
+  const user = getUserFromLS();
 
-    const favorites = localStorage.getItem(user.username);
-    return favorites ? JSON.parse(favorites) : [];
+  const favorites = localStorage.getItem(user.username);
+  return favorites ? JSON.parse(favorites) : [];
 };

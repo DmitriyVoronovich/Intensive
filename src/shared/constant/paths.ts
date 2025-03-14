@@ -5,7 +5,7 @@ export const PATHS: Record<string, string> = {
   SIGNUP: '/signup',
   HISTORY: '/history',
   FAVORITES: '/favorites',
-  GAMEPAGE: "/game/:id",
+  GAMEPAGE: '/game/:id',
 };
 
 export const REQUEST_PATHS: Record<string, string> = {

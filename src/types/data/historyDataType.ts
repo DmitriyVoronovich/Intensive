@@ -1,7 +1,7 @@
-import {QueryParamsType} from "./queryParamsType.ts";
+import { QueryParamsType } from './queryParamsType.ts';
 
 export type HistoryType = {
-    id: string;
-    timestamp: string;
-    query: QueryParamsType;
+  id: string;
+  timestamp: string;
+  query: QueryParamsType;
 };
